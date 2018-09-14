@@ -1,0 +1,97 @@
+//
+// Site widths
+// ========================
+
+$base--width: 1280px;
+$base--width__bigger-screen: 1140px;
+$base--width__big-screen: 960px;
+$base--width__medium-screen: 800px;
+$base--width__landing-page: 800px;
+
+
+//
+// Content widths
+// ========================
+
+$content--width: 880px;
+$content-both-sidebars--width: 660px;
+
+$content--width__bigger-screen: 800px;
+$content-both-sidebars--width__bigger-screen: 580px;
+
+$content--width__big-screen: 620px;
+$content-both-sidebars--width__big-screen: 400px;
+
+
+$primary-sidebar--width: 360px;
+$primary-sidebar--width__bigger-screen: 300px;
+
+$secondary-sidebar--width: 180px;
+
+$content-sidebar-wrap--width: 1060px;
+$content-sidebar-wrap--width__bigger-screen: 920px;
+$content-sidebar-wrap--width__big-screen: 740px;
+
+
+//
+// Title area dimensions
+// ========================
+
+$title-area--width: 300px;
+$site-title--min-height: 80px;
+
+$header-widget-area--width: 800px;
+$header-widget-area--width__big-screen: 620px;
+
+
+//
+// Content dimensions
+// ========================
+
+$entry--margin-bottom: 40px;
+$entry--padding: 70px 80px;
+$entry--margin-bottom__small-screen: 5%;
+$entry--padding__small-screen: 30px;
+
+$after-entry--margin-bottom: 40px;
+$after-entry--padding: 60px;
+
+$author-box--margin-bottom: 40px;
+$author-box--padding: 60px;
+
+$archive-description--margin-bottom: 40px;
+$archive-description--padding: 60px;
+
+$entry-header-meta--margin-bottom: 24px;
+$entry-footer-meta--paddingTop: 24px;
+
+
+//
+// Sidebar dimensions
+// ========================
+
+$sidebar--margin-bottom: 40px;
+
+$sidebar-widget--padding: 40px;
+$sidebar-widget--padding__small-screen: 30px;
+
+
+//
+// Widget dimensions
+// ========================
+
+$widget--margin-bottom: 40px;
+$widget-title--margin-bottom: 20px;
+
+
+//
+// Footer dimensions
+// ========================
+
+$footer-widgets--width: 380px;
+$footer-widgets--width__bigger-screen: 340px;
+$footer-widgets--width__big-screen: 300px;
+
+$footer-widgets-margin-right--width: 70px;
+$footer-widgets-margin-right--width__bigger-screen: 60px;
+$footer-widgets-margin-right--width__big-screen: 30px;

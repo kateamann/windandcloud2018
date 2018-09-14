@@ -1,0 +1,15 @@
+.archive-description {
+	background-color: $archive-description--background-color;
+	@include rem( font-size, $archive-description--font-size );
+	margin-bottom: $archive-description--margin-bottom;
+	padding: $archive-description--padding;
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+
+	@media only screen and (max-width: $small-screen) {
+		padding: 30px;
+		margin-bottom: 5%;
+	}
+}

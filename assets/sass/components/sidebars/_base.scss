@@ -1,0 +1,23 @@
+.sidebar {
+	@include rem( font-size, $sidebar--font-size );
+	margin-bottom: $sidebar--margin-bottom;
+
+	@media only screen and (max-width: $small-screen) {
+		margin-bottom: 5%;
+	}
+
+	.widget {
+		background-color: $sidebar-widget--background-color;
+		padding: $sidebar-widget--padding;
+
+		@media only screen and (max-width: $small-screen) {
+			padding: $sidebar-widget--padding__small-screen;
+			margin-bottom: 5%;
+		}
+	}
+
+	.widget-title a {
+		color: $sidebar-widget--link-color;
+		text-decoration: none;
+	}
+}

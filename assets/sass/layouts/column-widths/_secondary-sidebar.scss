@@ -1,0 +1,15 @@
+/* ### Secondary Sidebar */
+
+.sidebar-secondary {
+	float: left;
+	width: $secondary-sidebar--width;
+
+	@media only screen and (max-width: $medium-screen) {
+		width: 100%;
+	}
+
+	.content-sidebar-sidebar & {
+		float: right;
+	}
+}
+

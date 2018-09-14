@@ -1,0 +1,32 @@
+//
+// Site Header base styles
+// ========================
+
+.site-header {
+	background-color: $site-header--background-color;
+	
+	> .wrap {
+		padding: 20px 0;
+	}
+
+	@media only screen and (max-width: $medium-screen) {
+		.wrap {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+
+		ul.genesis-nav-menu {
+			float: none;
+		}
+
+		.search-form {
+			margin: 16px auto;
+			float: none;
+		}
+
+		.title-area {
+			text-align: center;
+		}	
+	}
+}
+

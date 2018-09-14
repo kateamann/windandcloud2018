@@ -1,0 +1,52 @@
+/* # Footer Widgets
+---------------------------------------------------------------------------------------------------- */
+
+.footer-widgets {
+	background-color: $footer-widgets--background-color;
+	clear: both;
+	@include rem( font-size, $footer-widgets--font-size );
+	padding: 60px 0;
+}
+
+.footer-widgets-1,
+.footer-widgets-2,
+.footer-widgets-3 {
+	width: $footer-widgets--width;
+
+	@media only screen and (max-width: $bigger-screen) {
+		width: $footer-widgets--width__bigger-screen;
+	}
+
+	@media only screen and (max-width: $big-screen) {
+		width: $footer-widgets--width__big-screen;
+	}
+
+	@media only screen and (max-width: $medium-screen) {
+		width: 100%;
+	}
+}
+
+.footer-widgets-1 {
+	margin-right: $footer-widgets-margin-right--width;
+
+	@media only screen and (max-width: $bigger-screen) {
+		margin-right: $footer-widgets-margin-right--width__bigger-screen;
+	}
+
+	@media only screen and (max-width: $big-screen) {
+		margin-right: $footer-widgets-margin-right--width__big-screen;
+	}
+}
+
+.footer-widgets-1,
+.footer-widgets-2 {
+	float: left;
+
+	@media only screen and (max-width: $medium-screen) {
+		margin: 0 auto 40px;
+	}
+}
+
+.footer-widgets-3 {
+	float: right;
+}

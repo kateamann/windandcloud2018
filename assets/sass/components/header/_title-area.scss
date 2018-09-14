@@ -1,0 +1,72 @@
+/* ## Title Area
+--------------------------------------------- */
+
+.title-area {
+	float: left;
+	padding: 10px 0;
+	width: $title-area--width;
+
+	.header-full-width & {
+		float: none;
+		width: 100%;
+	}
+
+	@media only screen and (max-width: $medium-screen) {
+		width: 100%;
+	}
+}
+
+.site-title {
+	@include rem( font-size, $site-title--font-size );
+	font-weight: 700;
+	line-height: 1.2;
+	margin-bottom: 0;
+
+	a,
+	a:focus,
+	a:hover {
+		color: $site-header--link-color;
+		text-decoration: none;
+	}
+
+	@media only screen and (max-width: $medium-screen) {
+		text-align: center;
+	}
+}
+
+.site-description {
+	@include rem( font-size, $site-description--font-size );
+	font-weight: 400;
+	line-height: 1.5;
+	margin-bottom: 0;
+
+	@media only screen and (max-width: $medium-screen) {
+		text-align: center;
+	}
+}
+
+.header-image {
+	.site-description,
+	.site-title {
+		display: block;
+		text-indent: -9999px;		
+	}
+
+	.title-area {
+		margin: 0 auto;
+		max-width: $title-area--width;
+		padding: 0;
+
+		@media only screen and (max-width: $medium-screen) {
+			float: none;
+		}
+	}
+
+	.site-title > a {
+		background-position: center !important;
+		background-size: contain !important;
+		float: left;
+		min-height: $site-title--min-height;
+		width: 100%;
+	}
+}

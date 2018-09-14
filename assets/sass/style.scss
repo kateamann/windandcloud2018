@@ -1,0 +1,37 @@
+/*!
+	Theme Name: windandcloud2018
+	Theme URI: http://www.kateamann.com/
+	
+	Description: Genesis child theme for Wind and Cloud Travel
+	Author: Kate Amann
+	Author URI: http://www.kateamann.com
+	Version: 1.0.0
+
+	Template: genesis
+
+	License: GPL-2.0+
+	License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+	Text Domain: windandcloud2018
+*/
+
+
+@media only screen and (max-width: 1600px) { /* large desktop */ }
+@media only screen and (max-width: 1340px) { /* medium desktop */ }
+@media only screen and (max-width: 1200px) { /* small desktop */ }
+@media only screen and (max-width: 1023px) { /* tablet landscape */ }
+@media only screen and (max-width: 860px) { /* tablet portrait */ }
+@media only screen and (max-width: 480px) { /* large mobile */ }
+@media only screen and (max-width: 320px) { /* mobile */ }
+
+
+@import "bourbon";
+@import "neat";
+@import "../../node_modules/sass-rem/rem";
+
+@import "utilities/index";
+@import "base/index";
+@import "layouts/index";
+@import "views/index";
+@import "components/index";
+@import "plugins/index";

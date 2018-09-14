@@ -1,0 +1,128 @@
+//
+// Default and Brand Colors
+// ============================
+
+$white: #fff;
+$black: #000;
+$dark-grey: #333;
+$light-grey: #eee;
+$red: #c3251d;
+
+
+//
+// Base Colors
+// ========================
+
+$base--color: $dark-grey;
+$body--background-color: $light-grey;
+
+$link--color: $red;
+$link--hover-color: $dark-grey;
+$link--focus-color: $link--hover-color;
+
+$hr--border-color: $light-grey;
+
+
+//
+// Element Colors
+// ========================
+
+$input--background-color: $white;
+$input--border-color: #ddd;
+$input--color: $dark-grey;
+$input--border-focus-color: #999;
+
+$button--background-color: $dark-grey;
+$button--color: $white;
+$button--background-hover-color: $red;
+$button--hover-color: $white;
+
+
+//
+// Navigation Colors
+// ========================
+ 
+$nav--link-color: $dark-grey;
+$nav--hover-color: $red;
+$nav--focus-color: $nav--hover-color;
+$nav--border-color: $light-grey;
+
+$pagination--background-color: $white;
+$pagination--color: $dark-grey;
+$pagination--link-color: $dark-grey;
+$pagination--hover-color: $dark-grey;
+$pagination__hoverBackgroundColor: $red;
+$pagination--focus-color: $pagination--hover-color;
+$pagination--border-color: $light-grey;
+
+$sub-menu--background-color: $white;
+$sub-menu--border-color: $light-grey;
+
+$primary-nav--background-color: $white;
+$primary-nav--link-color: $nav--link-color;
+$primary-nav--border-color: $light-grey;
+
+$secondary-nav--background-color: $white;
+$secondary-nav--link-color: $nav--link-color;
+$secondary-nav--border-color: $light-grey;
+
+$responsive-nav--background-color: $white;
+$responsive-nav--color: $dark-grey;
+$responsive-nav--link-color: $nav--link-color;
+$responsive-nav--hover-color: $red;
+$responsive-nav--focus-color: $responsive-nav--hover-color;
+$responsive-nav--border-color: $light-grey;
+
+$breadcrumb--background-color: $white;
+
+
+//
+// Header Colors
+// ========================
+
+$site-header--background-color: $white;
+$site-header--link-color: $dark-grey;
+
+
+//
+// Content Colors
+// ========================
+
+$entry--background-color: $white;
+
+$entry-title--link-color: $dark-grey;
+$entry-title--link-hover-color: $red;
+
+$entry-meta--border-color: $light-grey;
+
+$author-box--background-color: $white;
+
+$after-entry--background-color: $white;
+
+
+//
+// Archive Colors
+// ========================
+
+$archive-description--background-color: $white;
+
+
+//
+// Sidebar Colors
+// ========================
+
+$sidebar-widget--background-color: $white;
+$sidebar-widget--link-color: $dark-grey;
+
+
+//
+// Footer Colors
+// ========================
+
+$site-footer--background-color: $black;
+$site-footer--link-color: $dark-grey;
+$site-footer--border-color: $light-grey;
+
+$footer-widgets--background-color: $white;
+$footer-widgets--link-color: $dark-grey;
+$footer-widgets--border-color: $light-grey;

@@ -1,0 +1,90 @@
+/* ## Typographical Defaults
+--------------------------------------------- */
+
+html {
+	font-size: 62.5%; /* 10px browser default */
+}
+
+/* Chrome fix */
+body > div {
+	font-size: 20px;
+	font-size: 2rem;
+
+	@media only screen and (max-width: $small-screen) {
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+}
+
+body {
+	background-color: $body--background-color;
+	color: $base--color;
+	font-family: $base--font-family;
+	@include rem( font-size, $base--font-size );
+	-webkit-font-smoothing: antialiased;
+	font-weight: 400;
+	line-height: $base--line-height;
+	margin: 0;
+
+	@media only screen and (max-width: $small-screen) {
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+}
+
+a {
+	color: $link--color;
+	text-decoration: $base--link-decoration;
+}
+
+a:focus,
+a:hover {
+	color: $link--hover-color;
+	text-decoration: $base--link-hover-decoration;
+}
+
+a,
+button,
+input:focus,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+textarea:focus,
+.button,
+.gallery img {
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition:    all 0.1s ease-in-out;
+	-ms-transition:     all 0.1s ease-in-out;
+	-o-transition:      all 0.1s ease-in-out;
+	transition:         all 0.1s ease-in-out;
+}
+
+p {
+	margin: 0 0 28px;
+	padding: 0;
+}
+
+hr {
+	border: 0;
+	border-collapse: collapse;
+	border-top: 1px solid $hr--border-color;
+	clear: both;
+	margin: 1em 0;
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+blockquote,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+mark {
+	background: #ddd;
+	color: #000;
+}

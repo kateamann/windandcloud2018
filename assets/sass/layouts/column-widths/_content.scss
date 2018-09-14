@@ -1,0 +1,51 @@
+/* ### Content */
+
+.content {
+	float: right;
+	width: $content--width;
+
+	@media only screen and (max-width: $bigger-screen) {
+		width: $content--width__bigger-screen;
+	}
+
+	@media only screen and (max-width: $big-screen) {
+		width: $content--width__big-screen;
+	}
+
+	@media only screen and (max-width: $medium-screen) {
+		width: 100%;
+	}
+
+	.content-sidebar &,
+	.content-sidebar-sidebar &,
+	.sidebar-content-sidebar & {
+		float: left;
+	}
+
+	.content-sidebar-sidebar &,
+	.sidebar-content-sidebar &,
+	.sidebar-sidebar-content & {
+		width: $content-both-sidebars--width;
+
+		@media only screen and (max-width: $bigger-screen) {
+			width: $content-both-sidebars--width__bigger-screen;
+		}
+
+		@media only screen and (max-width: $big-screen) {
+			width: $content-both-sidebars--width__big-screen;
+		}
+
+		@media only screen and (max-width: $medium-screen) {
+			width: 100%;
+		}
+	}
+
+	.full-width-content & {
+		width: 100%;
+	}
+}
+
+
+
+
+
