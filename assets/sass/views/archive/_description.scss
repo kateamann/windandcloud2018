@@ -3,6 +3,7 @@
 	@include rem( font-size, $archive-description--font-size );
 	margin-bottom: $archive-description--margin-bottom;
 	padding: $archive-description--padding;
+	border-radius: $border-radius;
 
 	p:last-child {
 		margin-bottom: 0;

@@ -10,21 +10,27 @@ $base--width__landing-page: 800px;
 
 
 //
+// Stndard dimensions
+// ========================
+
+$border-radius: 10px;
+
+//
 // Content widths
 // ========================
 
-$content--width: 880px;
-$content-both-sidebars--width: 660px;
+$content--width: 960px;
+$content-both-sidebars--width: 740px;
 
-$content--width__bigger-screen: 800px;
-$content-both-sidebars--width__bigger-screen: 580px;
+$content--width__bigger-screen: 820px;
+$content-both-sidebars--width__bigger-screen: 600px;
 
-$content--width__big-screen: 620px;
-$content-both-sidebars--width__big-screen: 400px;
+$content--width__big-screen: 640px;
+$content-both-sidebars--width__big-screen: 420px;
 
 
-$primary-sidebar--width: 360px;
-$primary-sidebar--width__bigger-screen: 300px;
+$primary-sidebar--width: 280px;
+$primary-sidebar--width__bigger-screen: 280px;
 
 $secondary-sidebar--width: 180px;
 
@@ -49,18 +55,18 @@ $header-widget-area--width__big-screen: 620px;
 // ========================
 
 $entry--margin-bottom: 40px;
-$entry--padding: 70px 80px;
+$entry--padding: 40px;
 $entry--margin-bottom__small-screen: 5%;
-$entry--padding__small-screen: 30px;
+$entry--padding__small-screen: 20px;
 
 $after-entry--margin-bottom: 40px;
-$after-entry--padding: 60px;
+$after-entry--padding: 40px;
 
 $author-box--margin-bottom: 40px;
-$author-box--padding: 60px;
+$author-box--padding: 40px;
 
 $archive-description--margin-bottom: 40px;
-$archive-description--padding: 60px;
+$archive-description--padding: 40px;
 
 $entry-header-meta--margin-bottom: 24px;
 $entry-footer-meta--paddingTop: 24px;
@@ -72,8 +78,8 @@ $entry-footer-meta--paddingTop: 24px;
 
 $sidebar--margin-bottom: 40px;
 
-$sidebar-widget--padding: 40px;
-$sidebar-widget--padding__small-screen: 30px;
+$sidebar-widget--padding: 16px;
+$sidebar-widget--padding__small-screen: 16px;
 
 
 //
@@ -87,11 +93,3 @@ $widget-title--margin-bottom: 20px;
 //
 // Footer dimensions
 // ========================
-
-$footer-widgets--width: 380px;
-$footer-widgets--width__bigger-screen: 340px;
-$footer-widgets--width__big-screen: 300px;
-
-$footer-widgets-margin-right--width: 70px;
-$footer-widgets-margin-right--width__bigger-screen: 60px;
-$footer-widgets-margin-right--width__big-screen: 30px;

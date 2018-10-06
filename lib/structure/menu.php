@@ -20,8 +20,12 @@ namespace WindAndCloud2018;
  * @return void
  */
 function unregister_menu_callbacks() {
+	remove_action( 'genesis_after_header', 'genesis_do_nav' );
     remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 }
+
+
+add_action( 'genesis_sidebar', 'genesis_do_nav', 2 );
 
 // Reposition the secondary navigation menu
 add_action( 'genesis_footer', 'genesis_do_subnav', 5 );

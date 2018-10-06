@@ -7,12 +7,10 @@ html {
 
 /* Chrome fix */
 body > div {
-	font-size: 20px;
-	font-size: 2rem;
+	@include rem( font-size, $base--font-size );
 
 	@media only screen and (max-width: $small-screen) {
-		font-size: 18px;
-		font-size: 1.8rem;
+		@include rem( font-size, $base--small-screen-font-size );
 	}
 }
 
@@ -27,8 +25,7 @@ body {
 	margin: 0;
 
 	@media only screen and (max-width: $small-screen) {
-		font-size: 18px;
-		font-size: 1.8rem;
+		@include rem( font-size, $base--small-screen-font-size );
 	}
 }
 
@@ -62,6 +59,10 @@ textarea:focus,
 p {
 	margin: 0 0 28px;
 	padding: 0;
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
 }
 
 hr {

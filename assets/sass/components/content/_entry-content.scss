@@ -23,3 +23,26 @@
 		color: #eee;
 	}
 }
+
+.blog,
+.archive,
+.search {
+	.entry {
+		background-color: $light-grey;
+		border-bottom-left-radius: $border-radius;
+		border-bottom-right-radius: $border-radius;
+		padding: 0 20px 0 0;
+		margin-right: 20px;
+		margin-left: 20px;
+
+		img.alignleft {
+			margin-bottom: 0;
+			border-bottom-left-radius: $border-radius;
+		}
+
+		p.entry-meta {
+			margin-top: 20px;
+			margin-bottom: 10px;
+		}
+	}
+}

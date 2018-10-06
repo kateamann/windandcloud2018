@@ -1,12 +1,13 @@
-$base--font-family: 'Source Sans Pro', sans-serif;
-$base--font-size: 20px;
+$base--font-family: 'Open Sans', sans-serif;
+$base--font-size: 16px;
+$base--small-screen-font-size: 14px;
 $base--line-height: 1.625;
 
 $base--link-decoration: none;
 $base--link-hover-decoration: none;
 $base--link-focus-decoration: $base--link-hover-decoration;
 
-$headings--font-family: 'Source Sans Pro', sans-serif;
+$headings--font-family: 'Open Sans', sans-serif;
 $headings--line-height: 1.2;
 
 
@@ -14,8 +15,8 @@ $headings--line-height: 1.2;
 // Element Typography
 // ========================
 
-$blockquote--font-size: 30px;
-$input--font-size: 18px;
+$blockquote--font-size: 26px;
+$input--font-size: 16px;
 $button--font-size: 16px;
 
 
@@ -31,30 +32,30 @@ $site-description--font-size: 16px;
 // Navigation Typography
 // ========================
 
-$nav--font-size: 16px;
-$pagination--font-size: 16px;
+$nav--font-size: 14px;
+$pagination--font-size: 14px;
 $sub-menu--font-size: 14px;
 $primary-nav--font-size: 14px;
-$breadcrumb--font-size: 16px;
+$breadcrumb--font-size: 14px;
 
 
 //
 // Content Typography
 // ========================
 
-$entry-title--font-size: 36px;
+$entry-title--font-size: 26px;
 $entry-meta--font-size: 16px;
-$author-box--font-size: 18px;
+$author-box--font-size: 16px;
 $author-box-title--font-size: 20px;
-$after-entry--font-size: 18px;
+$after-entry--font-size: 16px;
 
 
 //
 // Archive Typography
 // ========================
 
-$archive-title--font-size: 20px;
-$archive-description--font-size: 18px;
+$archive-title--font-size: 30px;
+$archive-description--font-size: 16px;
 
 
 //
@@ -77,4 +78,4 @@ $widget-featured-content-title--font-size: 20px;
 // ========================
 
 $site-footer--font-size: 16px;
-$footer-widgets--font-size: 18px;
+$footer-widgets--font-size: 16px;

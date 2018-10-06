@@ -5,11 +5,18 @@
 	background-color: $site-footer--background-color;
 	border-top: 1px solid $site-footer--border-color;
 	@include rem( font-size, $site-footer--font-size );
-	line-height: 1;
+	line-height: 1.2;
 	padding: 60px 0;
-	text-align: center;
 
 	p {
 		margin-bottom: 0;
+	}
+
+	.leftfoot {
+
+	}
+
+	.rightfoot {
+
 	}
 }

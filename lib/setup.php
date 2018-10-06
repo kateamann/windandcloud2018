@@ -41,8 +41,8 @@ function setup_child_theme() {
  */
 function unregister_genesis_callbacks() {
     unregister_menu_callbacks();
-    //unregister_header_callbacks();
-    //unregister_footer_callbacks();
+    unregister_header_callbacks();
+    unregister_footer_callbacks();
     //add each of the unregister structure callbacks here
 }
 
@@ -80,9 +80,9 @@ function add_theme_supports() {
         ),
         'custom-background' => null,
         'genesis-after-entry-widget-area' => null,
-        'genesis-footer-widgets' => 3,
+        'genesis-footer-widgets' => null,
         'genesis-menus'=> array( 
-            'primary' => __( 'After Header Menu', CHILD_TEXT_DOMAIN ), 
+            'primary' => __( 'Main Menu', CHILD_TEXT_DOMAIN ), 
             'secondary' => __( 'Footer Menu', CHILD_TEXT_DOMAIN ) 
         ),
     );
@@ -104,8 +104,13 @@ function add_theme_supports() {
 function add_new_image_sizes() {
     $config = array(
         'featured-image' =>  array(
-            'width' => 720, 
-            'height' => 400, 
+            'width' => 900, 
+            'height' => 600, 
+            'crop' => TRUE,
+        ),
+        'featured-link' =>  array(
+            'width' => 300, 
+            'height' => 200, 
             'crop' => TRUE,
         ),
     );
@@ -159,6 +164,8 @@ function update_theme_settings_defaults() {
     
 }
 
+add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_sidebar_content' );
+
 
 /**
  * Get the theme settings defaults
@@ -177,5 +184,3 @@ function get_theme_settings_defaults() {
 			'site_layout'               => 'sidebar-content',
 		);
 }
-
-add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_sidebar_content' );

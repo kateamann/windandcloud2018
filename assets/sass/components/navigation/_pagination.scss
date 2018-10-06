@@ -4,6 +4,7 @@
 .pagination {
 	clear: both;
 	margin: 40px 0;
+	text-align: center;
 
 	@media only screen and (max-width: $small-screen) {
 		margin: 5% auto;
@@ -34,6 +35,7 @@
 		font-weight: 600;
 		padding: 8px 12px;
 		text-decoration: none;
+		border-radius: $border-radius;
 
 		&:focus,
 		&:hover,

@@ -11,3 +11,21 @@
 		}
 	}
 }
+
+.blog,
+.archive,
+.search {
+	.entry-title{
+		background-color: $mid-grey;
+		border-top-left-radius: $border-radius;
+		border-top-right-radius: $border-radius;
+		color: $white;
+		margin: 0 20px;
+		padding: 14px 20px;
+
+		a {
+			color: $white;
+		}
+	}
+}
+

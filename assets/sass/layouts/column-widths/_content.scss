@@ -3,7 +3,7 @@
 .content {
 	float: right;
 	width: $content--width;
-
+	
 	@media only screen and (max-width: $bigger-screen) {
 		width: $content--width__bigger-screen;
 	}
@@ -44,6 +44,17 @@
 		width: 100%;
 	}
 }
+
+.blog,
+.archive,
+.search {
+	.content {
+		background-color: $white;
+		border-radius: $border-radius;
+		margin-bottom: 40px;
+	}
+}
+
 
 
 

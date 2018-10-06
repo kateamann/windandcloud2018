@@ -5,7 +5,9 @@
 $white: #fff;
 $black: #000;
 $dark-grey: #333;
+$mid-grey: #777;
 $light-grey: #eee;
+$green: #71B00F;
 $red: #c3251d;
 
 
@@ -16,7 +18,7 @@ $red: #c3251d;
 $base--color: $dark-grey;
 $body--background-color: $light-grey;
 
-$link--color: $red;
+$link--color: $green;
 $link--hover-color: $dark-grey;
 $link--focus-color: $link--hover-color;
 
@@ -28,13 +30,13 @@ $hr--border-color: $light-grey;
 // ========================
 
 $input--background-color: $white;
-$input--border-color: #ddd;
+$input--border-color: $light-grey;
 $input--color: $dark-grey;
-$input--border-focus-color: #999;
+$input--border-focus-color: $green;
 
-$button--background-color: $dark-grey;
+$button--background-color: $green;
 $button--color: $white;
-$button--background-hover-color: $red;
+$button--background-hover-color: $dark-grey;
 $button--hover-color: $white;
 
 
@@ -43,17 +45,17 @@ $button--hover-color: $white;
 // ========================
  
 $nav--link-color: $dark-grey;
-$nav--hover-color: $red;
+$nav--hover-color: $green;
 $nav--focus-color: $nav--hover-color;
 $nav--border-color: $light-grey;
 
 $pagination--background-color: $white;
 $pagination--color: $dark-grey;
 $pagination--link-color: $dark-grey;
-$pagination--hover-color: $dark-grey;
-$pagination__hoverBackgroundColor: $red;
+$pagination--hover-color: $white;
+$pagination__hoverBackgroundColor: $dark-grey;
 $pagination--focus-color: $pagination--hover-color;
-$pagination--border-color: $light-grey;
+$pagination--border-color: none;
 
 $sub-menu--background-color: $white;
 $sub-menu--border-color: $light-grey;
@@ -69,7 +71,7 @@ $secondary-nav--border-color: $light-grey;
 $responsive-nav--background-color: $white;
 $responsive-nav--color: $dark-grey;
 $responsive-nav--link-color: $nav--link-color;
-$responsive-nav--hover-color: $red;
+$responsive-nav--hover-color: $green;
 $responsive-nav--focus-color: $responsive-nav--hover-color;
 $responsive-nav--border-color: $light-grey;
 
@@ -91,7 +93,7 @@ $site-header--link-color: $dark-grey;
 $entry--background-color: $white;
 
 $entry-title--link-color: $dark-grey;
-$entry-title--link-hover-color: $red;
+$entry-title--link-hover-color: $green;
 
 $entry-meta--border-color: $light-grey;
 
@@ -119,10 +121,6 @@ $sidebar-widget--link-color: $dark-grey;
 // Footer Colors
 // ========================
 
-$site-footer--background-color: $black;
+$site-footer--background-color: $white;
 $site-footer--link-color: $dark-grey;
 $site-footer--border-color: $light-grey;
-
-$footer-widgets--background-color: $white;
-$footer-widgets--link-color: $dark-grey;
-$footer-widgets--border-color: $light-grey;

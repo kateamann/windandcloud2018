@@ -9,6 +9,8 @@
 	.widget {
 		background-color: $sidebar-widget--background-color;
 		padding: $sidebar-widget--padding;
+		margin-top: 20px;
+		border-radius: $border-radius;
 
 		@media only screen and (max-width: $small-screen) {
 			padding: $sidebar-widget--padding__small-screen;

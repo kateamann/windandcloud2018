@@ -1,16 +1,18 @@
 .genesis-nav-menu {
 	clear: both;
+	background-color: $white;
 	@include rem( font-size, $nav--font-size );
-	font-weight: 600;
+	font-weight: 400;
 	line-height: 1;
 	width: 100%;
+	border-radius: $border-radius;
 
 	@media only screen and (max-width: $medium-screen) {
 		text-align: center;
 	}
 
 	.menu-item {
-		display: inline-block;
+		display: block;
 		margin-bottom: 0;
 		padding-bottom: 0;
 		text-align: left;
@@ -19,7 +21,7 @@
 	a {
 		color: $nav--link-color;
 		display: block;
-		padding: 32px 20px;
+		padding: 16px;
 		text-decoration: none;
 	}
 

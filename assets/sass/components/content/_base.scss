@@ -10,4 +10,13 @@
 		margin-bottom: $entry--margin-bottom__small-screen;
 		padding: $entry--padding__small-screen;
 	}
+
+	.singular-featured-image img {
+		vertical-align: top;
+		margin-bottom: 40px;
+	}
+}
+
+.single .entry {
+	border-radius: $border-radius;
 }
