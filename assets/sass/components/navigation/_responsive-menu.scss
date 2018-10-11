@@ -50,12 +50,16 @@
 	}
 
 	.menu-toggle:focus,
-	.menu-toggle:hover,
-	.sub-menu-toggle:focus,
-	.sub-menu-toggle:hover {
+	.menu-toggle:hover {
 		background-color: $responsive-nav--background-color;
 		border-width: 0;
 		color: $responsive-nav--hover-color;
+	}
+
+	.sub-menu-toggle:focus,
+	.sub-menu-toggle:hover {
+		background-color: $green;
+		color: $white;
 	}
 
 	.menu-toggle {
@@ -63,12 +67,6 @@
 		position: relative;
 		width: 100%;
 		z-index: 1000;
-	}
-
-	.menu-toggle,
-	.menu-toggle:focus,
-	.menu-toggle:hover {
-		border-top: 1px solid $responsive-nav--border-color;
 	}
 
 	.menu-toggle::before {
@@ -80,6 +78,7 @@
 	.sub-menu-toggle {
 		float: right;
 		padding: 13px 10px;
+		border-radius: 0;
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -115,7 +114,6 @@
 			margin: 0;
 			border: none;
 			opacity: 1;
-			padding-left: 15px;
 			position: static;
 			width: 100%;
 

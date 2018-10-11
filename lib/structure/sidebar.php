@@ -17,22 +17,14 @@ add_action( 'genesis_before_content', 'genesis_get_sidebar' );
 add_action( 'genesis_sidebar', 'genesis_seo_site_title', 1 );
 
 
-
 add_action( 'genesis_setup', __NAMESPACE__ . '\register_sidebar_widget_areas', 15 );
-/**
- * Register Sidebar widget areas
- *
- * @since  1.0.0
- *
- * @return void
- */
 function register_sidebar_widget_areas() {
 	$widget_areas = array(
 		array(
 			'id'          => 'blog-sidebar',
 			'name'        => __( 'Blog Sidebar', CHILD_THEME_NAME ),
 			'description' => __( 'Blog Sidebar', CHILD_THEME_NAME ),
-			'before_widget' => '<div class="blog-sidebar">',
+			'before_widget' => '<div class="widget">',
     		'after_widget' => '</div>',
 		),
 	);
@@ -49,7 +41,7 @@ function blog_sidebar() {
 
         add_action( 'genesis_sidebar', function() {
 			genesis_widget_area ('blog-sidebar',array(
-		        'before' => '<div class="widget">',
+		        'before' => '<div class="blog-sidebar">',
 		        'after' => '</div>',));
 		} );
     }

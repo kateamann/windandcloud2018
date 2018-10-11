@@ -5,6 +5,7 @@
 	background-color: $entry--background-color;
 	margin-bottom: $entry--margin-bottom;
 	padding: $entry--padding;
+	border-radius: $border-radius;
 
 	@media only screen and (max-width: $small-screen) {
 		margin-bottom: $entry--margin-bottom__small-screen;
@@ -15,8 +16,4 @@
 		vertical-align: top;
 		margin-bottom: 40px;
 	}
-}
-
-.single .entry {
-	border-radius: $border-radius;
 }
