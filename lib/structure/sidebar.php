@@ -12,9 +12,7 @@
  */
 namespace WindAndCloud2018;
 
-remove_action( 'genesis_after_content', 'genesis_get_sidebar' );
-add_action( 'genesis_before_content', 'genesis_get_sidebar' );
-add_action( 'genesis_sidebar', 'genesis_seo_site_title', 1 );
+add_action( 'genesis_before_content', 'genesis_seo_site_title', 1 );
 
 
 add_action( 'genesis_setup', __NAMESPACE__ . '\register_sidebar_widget_areas', 15 );

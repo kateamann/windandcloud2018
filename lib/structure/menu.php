@@ -24,8 +24,7 @@ function unregister_menu_callbacks() {
     remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 }
 
-
-add_action( 'genesis_sidebar', 'genesis_do_nav', 2 );
+add_action( 'genesis_before_content', 'genesis_do_nav', 2 );
 
 // Reposition the secondary navigation menu
 add_action( 'genesis_footer', 'genesis_do_subnav', 5 );
