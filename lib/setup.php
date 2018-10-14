@@ -109,8 +109,8 @@ function add_new_image_sizes() {
             'crop' => TRUE,
         ),
         'featured-link' =>  array(
-            'width' => 300, 
-            'height' => 200, 
+            'width' => 450, 
+            'height' => 300, 
             'crop' => TRUE,
         ),
     );
