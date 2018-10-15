@@ -1,0 +1,98 @@
+//* Small tour cards *//
+
+.related-list,
+.tours-by-category {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+
+    @media only screen and (max-width: $small-screen) {
+        display: block;
+    }
+
+    .small-tour-card {
+	    width: 30%;
+	    margin-bottom: 20px;
+
+	    h4 {
+	    	width: 100%;
+	    	background-color: $mid-grey;
+	    	border-top-left-radius: $border-radius;
+	    	border-top-right-radius: $border-radius;
+	    	margin-bottom: 0;
+	    	padding: 10px;
+	    	@include rem( font-size, 18px );
+	    	color: $white;
+	    }
+
+	    img {
+	    	width: 100%;
+	    }
+
+	    @media only screen and (max-width: $small-screen) {
+	        width: 100%;
+	        margin-bottom: 40px;
+	    } 
+	}
+}
+
+.tours-by-category {
+	margin-top: 40px;
+}
+
+
+
+
+
+//* Large tour cards *//
+.large-tour-card {
+	margin: 20px 0;
+	background-color: $light-grey;
+	display: block;
+
+	h3 {
+		@include rem( font-size, 20px );
+		background-color: $mid-grey;
+		color: $white;
+	    border-top-left-radius: $border-radius;
+	    border-top-right-radius: $border-radius;
+	    margin: 0;
+	    padding: 14px 20px;
+
+    	a {
+    		color: $white;
+    	}
+
+	    .price {
+	    	float: right;
+	    }
+	}
+
+	.tour-teaser {
+		border-bottom-left-radius: $border-radius;
+		border-bottom-right-radius: $border-radius;
+
+		a.entry-image-link {
+			float: left;
+			width: 50%;
+			height: auto;
+
+			img {
+				width: 100%;
+				border-bottom-left-radius: $border-radius;
+			}
+		}
+
+		.tour-info {
+			float: right;
+			width: 50%;
+			padding: 20px;
+		}
+
+		.more-link {
+			float: right;
+			margin-top: 20px;
+		}
+	}
+}

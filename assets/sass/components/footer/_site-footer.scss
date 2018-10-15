@@ -5,11 +5,24 @@
 	background-color: $site-footer--background-color;
 	border-top: 1px solid $site-footer--border-color;
 	@include rem( font-size, $site-footer--font-size );
-	line-height: 1.2;
 	padding: 60px 0;
 
 	p {
 		margin-bottom: 0;
+	}
+
+	h3.widget-title {
+		margin-bottom: 20px;
+		padding: 0;
+	}
+
+	.widget {
+		padding: 16px;
+	}
+
+	.leftfoot,
+	.rightfoot {
+		
 	}
 
 	.leftfoot {

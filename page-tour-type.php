@@ -32,8 +32,6 @@ function display_tours_by_type() {
 	if ( $page_parent == 23 ) {
 		$tour_cat = 122;
 	}
-
-	$tour_cat = 119;
 	
 	$args = array(
 		'post_type' => 'reisen',

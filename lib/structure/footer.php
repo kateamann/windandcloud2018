@@ -38,14 +38,14 @@ function register_footer_widget_areas() {
 			'id'          => 'footer-left',
 			'name'        => __( 'Footer Left', CHILD_THEME_NAME ),
 			'description' => __( 'This is the footer left area', CHILD_THEME_NAME ),
-			'before_widget' => '<div class="first one-half footerleft">',
+			'before_widget' => '<div class="footerleft widget">',
     		'after_widget' => '</div>',
 		),
 		array(
 			'id'          => 'footer-right',
 			'name'        => __( 'Footer Right', CHILD_THEME_NAME ),
 			'description' => __( 'This is the footer right area', CHILD_THEME_NAME ),
-			'before_widget' => '<div class="one-half footerright">',
+			'before_widget' => '<div class="footerright widget">',
     		'after_widget' => '</div>',
 		),
 	);
@@ -60,9 +60,9 @@ add_action('genesis_footer', __NAMESPACE__ . '\add_custom_footer');
 //Add the New Footer
 function add_custom_footer() {
     genesis_widget_area ('footer-left',array(
-        'before' => '<div class="leftfoot">',
+        'before' => '<div class="leftfoot one-half first">',
         'after' => '</div>',));
     genesis_widget_area ('footer-right',	array(
-        'before' => '<div class="rightfoot">',
+        'before' => '<div class="rightfoot one-half">',
         'after' => '</div>',));
 }

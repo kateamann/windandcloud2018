@@ -147,41 +147,6 @@
 	    }
 	}
 
-
-	.related-list {
-	    display: flex;
-	    justify-content: space-between;
-	    align-items: flex-end;
-
-	    @media only screen and (max-width: $small-screen) {
-	        display: block;
-	    }
-
-	    .small-tour-card {
-		    width: 30%;
-
-		    h4 {
-		    	width: 100%;
-		    	background-color: $mid-grey;
-		    	border-top-left-radius: $border-radius;
-		    	border-top-right-radius: $border-radius;
-		    	margin-bottom: 0;
-		    	padding: 10px;
-		    	@include rem( font-size, 18px );
-		    	color: $white;
-		    }
-
-		    img {
-		    	width: 100%;
-		    }
-
-		    @media only screen and (max-width: $small-screen) {
-		        width: 100%;
-		        margin-bottom: 40px;
-		    } 
-		}
-	}
-
 }
 
 

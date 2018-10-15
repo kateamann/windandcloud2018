@@ -22,8 +22,8 @@ function register_sidebar_widget_areas() {
 			'id'          => 'blog-sidebar',
 			'name'        => __( 'Blog Sidebar', CHILD_THEME_NAME ),
 			'description' => __( 'Blog Sidebar', CHILD_THEME_NAME ),
-			'before_widget' => '<div class="widget">',
-    		'after_widget' => '</div>',
+			'before_widget' => '<section class="widget">',
+    		'after_widget' => '</section>',
 		),
 	);
 	foreach ( $widget_areas as $widget_area ) {
@@ -38,9 +38,7 @@ function blog_sidebar() {
         remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 
         add_action( 'genesis_sidebar', function() {
-			genesis_widget_area ('blog-sidebar',array(
-		        'before' => '<div class="blog-sidebar">',
-		        'after' => '</div>',));
+			genesis_widget_area ('blog-sidebar');
 		} );
     }
 }

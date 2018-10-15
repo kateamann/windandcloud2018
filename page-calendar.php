@@ -16,76 +16,74 @@ namespace WindAndCloud2018;
 
 add_action( 'genesis_entry_content', __NAMESPACE__ . '\group_travel_calendar', 10 );
 function group_travel_calendar() {
-	
-	$args = array(
-		'post_type' 		=> 'reisen',
-		'post_status' 		=> 'publish',
-		'posts_per_page' 	=> -1,
-		'meta_key'			=> 'start_date',
-		'orderby'			=> 'meta_value',
-		'order'				=> 'ASC'
-	);
-	
+
+	global $wpdb;
+
+	$ranges = $wpdb->get_results('SELECT * FROM wp_ftcalendar_events ORDER BY start_datetime ASC', ARRAY_A);
+
 	setlocale(LC_ALL, 'de_DE');
-	
-	$the_query = new \WP_Query($args);
-	
-	if($the_query->have_posts())
-	{
-		$month = -1;
-	
-		while($the_query->have_posts()) : $the_query->the_post(); global $post; ?>
-		
-		<?php
-			$newMonth 	= intval(substr(get_field('start_date'), 5, 2));
-			$time		= strtotime(get_field('start_date'));
 
-			$categories	= get_field('category');
+	$month = -1;
 
-			if(get_post_type($categories[0]->ID) == 'individualreisen')
-				continue;
+	foreach($ranges as $range) {
+		$startDate 	= $range['start_datetime'];
+		$endDate 	= $range['end_datetime'];
 
-			if($month !== $newMonth)
+		$tourID = $range['post_parent'];
+		$post = get_post( $tourID, ARRAY_A );
+
+		$title = $post['post_title'];
+		$tour_tags = get_the_tags( $tourID );
+
+		$newMonth 	= intval(substr($startDate, 5, 2));
+		$time		= strtotime($startDate);
+
+		$categories	= get_field('category');
+
+		if(get_post_type($categories[0]->ID) == 'individualreisen')
+			continue;
+
+		if($month !== $newMonth)
+		{
+			if($month !== -1)
 			{
-				if($month !== -1)
-				{
-					// end section
-					?>
-					</tbody></table></div></section>
-					<?php
-				}
-				
-				// start section
+				// end section
 				?>
-				<section class="content-wrapper calendar">
-		      	  <h3><?php echo strftime("%B %Y", $time); ?></h3>
-		      	  
-		      	  <div class="table-wrapper"><table><thead><tr><td>Datum</td><td>Name der Tour</td><td>Tour Kategorie</td><td></td></tr></thead><tbody>
+				</tbody></table></div></section>
 				<?php
 			}
 			
-			$month 		= $newMonth;
-
-			// row
+			// start section
 			?>
+			<section class="content-wrapper calendar">
+		  	  <h3><?php echo strftime("%B %Y", $time); ?></h3>
+		  	  
+		  	  <div class="table-wrapper"><table><thead><tr><td>Datum</td><td>Name der Tour</td><td class="tour-tag">Tour Kategorie</td><td></td></tr></thead><tbody>
+			<?php
+		}
 
-  	  		<tr onclick="location.href='<?php the_permalink(); ?>'">
-  	  			<td><?php echo date('d.m.y', strtotime(get_field('start_date'))) . ' - ' . date('d.m.y', strtotime(get_field('end_date'))) ?></td>
-  	  			<td><?php the_title(); ?></td>
-  	  			<td><?php echo $categories[0]->post_title; ?></td>
-  	  			<td></td>
-  	  		</tr>
+		$month 		= $newMonth;
 
-		<?php endwhile;
-		
-		// end section
+		// row
 		?>
-		</tbody></table></div></section>
+			<tr onclick="location.href='<?php the_permalink( $tourID ); ?>'">
+				<td><?php echo date('d.m.y', strtotime($startDate)) . ' - ' . date('d.m.y', strtotime($endDate)) ?></td>
+				<td><?php echo $title; ?></td>
+				<td class="tour-tag"><?php echo $tour_tags[0]->name; ?></td>
+				<td><i class="fas fa-caret-right"></i></td>
+			</tr>
+
 		<?php
 	}
-	
-	wp_reset_postdata();
+
+	?>
+	</tbody></table></div></section>
+
+	<?php 
+	      	  
 }
+
+      	  
 
 
 

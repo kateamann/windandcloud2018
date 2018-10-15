@@ -1,0 +1,57 @@
+.content .content-wrapper.calendar{
+	background-color: $light-grey;
+	border-radius: $border-radius;
+
+	.table-wrapper {
+		padding: 0 15px 15px 15px;
+		border-bottom-left-radius: $border-radius;
+	    border-bottom-right-radius: $border-radius;
+	    margin-bottom: 40px;
+	}
+
+	h3 {
+		@include rem( font-size, 20px );
+		background-color: $mid-grey;
+		color: $white;
+	    border-top-left-radius: $border-radius;
+	    border-top-right-radius: $border-radius;
+	    margin: 0;
+	    padding: 14px 20px;
+	}
+
+	table {
+		margin-bottom: 0;
+	}
+
+	table td:first-child, table th:first-child {
+	    padding-left: 6px;
+	}
+
+	table thead {
+		border-bottom: 2px solid $mid-grey;
+	}
+
+	table tbody tr:hover {
+		background-color: $white;
+		cursor: pointer;
+	}
+
+	table tbody td:nth-child(3) {
+		font-weight: 300;
+	}
+
+	table tbody td:nth-child(4) {
+		color: $green;
+	}
+
+	@media only screen and (max-width: $medium-screen) {
+		table {
+			@include rem( font-size, 14px );
+		}
+
+        table td.tour-tag {
+        	display: none;
+        }
+    }
+
+}

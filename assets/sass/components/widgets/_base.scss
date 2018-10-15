@@ -24,6 +24,57 @@
 		margin: 0 0 0 30px;
 		padding: 0;
 	}
+
+	.entry {
+		background: none;
+		padding: 0;
+		margin-bottom: 0;
+
+		&:last-of-type {
+		margin-bottom: 0;
+		}
+	}
+
+	.reisen.entry {
+		h2 {
+		    width: 100%;
+			background-color: $mid-grey;
+			border-top-left-radius: $border-radius;
+			border-top-right-radius: $border-radius;
+			margin-bottom: 0;
+			padding: 10px;
+
+			a {
+				color: $white;
+			}
+		}
+
+		.alignnone {
+			margin-bottom: 0;
+		}
+
+		img {
+			border-bottom-left-radius: $border-radius;
+			border-bottom-right-radius: $border-radius;
+		}
+	}
+	
+
+	.post.entry {
+		border-top: 1px solid $green;
+		border-radius: 0;
+		padding: 16px 0;
+		margin: 0 16px;
+
+		h2 {
+			margin-bottom: 10px;
+		}
+	}
+
+	.entry-title,
+	h2 {
+		@include rem( font-size, $widget-featured-content-title--font-size );
+	}
 }
 
 .widget p:last-child,
@@ -39,5 +90,4 @@
 h3.widget-title {
 	margin-bottom: 0;
 	padding: 6px 16px 16px;
-	border-bottom: 2px solid $green;
 }

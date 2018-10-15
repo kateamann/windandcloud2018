@@ -27,7 +27,7 @@
 .blog,
 .archive,
 .search {
-	.entry {
+	.content .entry {
 		background-color: $light-grey;
 		border-bottom-left-radius: $border-radius;
 		border-bottom-right-radius: $border-radius;
