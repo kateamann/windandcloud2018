@@ -39,12 +39,6 @@ jQuery(document).ready(function($){
 	  $("ul.tour-tabs li").removeClass("active");
 	  $("ul.tour-tabs li[rel^='"+d_activeTab+"']").addClass("active");
     });
-	
-	
-	/* Extra class "tab_last" 
-	   to add border to right side
-	   of last tab */
-	$('ul.tour-tabs li').last().addClass("tab_last");
 
 });
 	

@@ -13,101 +13,172 @@
 		}
 	}
 
-	.entry-content {
+	.info-box {
+		width: 225px;
+		float: right;
+		background-color: $light-grey;
+		border-radius: $border-radius;
+		padding: 20px;
+		margin: 0 0 20px 40px;
 
-		.tour-info {
-			display: block;
+		.price {
+			@include rem( font-size, 20px );
+			font-weight: 600;
+			color: $green;
+			margin-bottom: 20px;
 
-			ul.tour-tabs {
-				margin: 20px 0 0 0;
-				padding: 0;
-				float: left;
-				list-style: none;
-				width: 100%;
+			.original {
+				text-decoration: line-through;
+				color: $mid-grey;
+				margin-left: 10px;
 			}
+		}
 
-			ul.tour-tabs li {
-				float: left;
-				margin: 0 5px 0 0;
-				cursor: pointer;
-				padding: 6px 16px;
-				border-top-left-radius: $border-radius;
-				border-top-right-radius: $border-radius;
-				line-height: 31px;
-				background-color: $green;
+		a.button.book-tour {
+			margin-top: 40px;
+		    width: 100%;
+		    text-align: center;
+		}
+	}
+
+	.tour-images {
+		margin: 20px 0;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.tour-gallery {
+		width: 650px;
+
+		.flexslider {
+			margin-bottom: 5px;
+			border: none;
+			border-radius: 0;
+		}
+
+		.flex-direction-nav a:before {
+		    @include rem( font-size, 30px );
+		}
+
+		ul.slides li {
+			position: relative;
+		}
+
+		.flexcaption {
+			width: 100%;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			z-index: 100;
+
+			p {
+				padding: 2%;
+				background: rgba(0,0,0,.5);
 				color: $white;
-				overflow: hidden;
-				position: relative;
-
-				&:last-of-type {
-					margin-right: 0;
-				}
+				text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+				font-size: 14px;
+				line-height: 18px;
 			}
+		}
+	}
 
-			ul.tour-tabs li:hover {
-				background-color: $light-grey;
-				color: $black;
+	.tour-map {
+		width: 225px;
+	}
+
+
+	.tour-info {
+		display: block;
+
+		ul.tour-tabs {
+			margin: 20px 0 0 0;
+			padding: 0;
+			float: left;
+			list-style: none;
+			width: 100%;
+		}
+
+		ul.tour-tabs li {
+			float: left;
+			margin: 0 5px 0 0;
+			cursor: pointer;
+			padding: 6px 16px;
+			border-top-left-radius: $border-radius;
+			border-top-right-radius: $border-radius;
+			line-height: 31px;
+			background-color: $green;
+			color: $white;
+			overflow: hidden;
+			position: relative;
+
+			&:last-of-type {
+				margin-right: 0;
 			}
+		}
 
-			ul.tour-tabs li.active {
-				background-color: $light-grey;
-				color: $black;
-				display: block;
-			}
+		ul.tour-tabs li:hover {
+			background-color: $light-grey;
+			color: $black;
+		}
 
-			.tab-content-container {
-				clear: both;
-				float: left;
-				width: 100%;
-				background: $light-grey;
-				border-top-right-radius: $border-radius;
-				border-bottom-left-radius: $border-radius;
-				border-bottom-right-radius: $border-radius;
-				overflow: auto;
+		ul.tour-tabs li.active {
+			background-color: $light-grey;
+			color: $black;
+			display: block;
+		}
 
-				@media only screen and (max-width: $medium-screen) {
-					margin-top: 20px;
-				}
-			}
-
-			.tab_content {
-				padding: 20px;
-				display: none;
-
-				h2.tab-heading {
-					margin-bottom: 30px;
-
-					@media only screen and (max-width: $medium-screen) {
-						display: none;
-					}
-				}
-			}
-
-			.tab_drawer_heading { display: none; }
+		.tab-content-container {
+			clear: both;
+			float: left;
+			width: 100%;
+			background: $light-grey;
+			border-top-right-radius: $border-radius;
+			border-bottom-left-radius: $border-radius;
+			border-bottom-right-radius: $border-radius;
+			overflow: auto;
 
 			@media only screen and (max-width: $medium-screen) {
-				.tour-tabs {
+				margin-top: 20px;
+			}
+		}
+
+		.tab_content {
+			padding: 20px;
+			display: none;
+
+			h2.tab-heading {
+				margin-bottom: 30px;
+
+				@media only screen and (max-width: $medium-screen) {
 					display: none;
 				}
-				.tab_drawer_heading {
-					background-color: $green;
-					color: $white;
-					border-bottom: 1px solid $white;
-					margin: 0;
-					padding: 16px;
-					display: block;
-					cursor: pointer;
-					-webkit-touch-callout: none;
-					-webkit-user-select: none;
-					-khtml-user-select: none;
-					-moz-user-select: none;
-					-ms-user-select: none;
-					user-select: none;
-				}
-				.d_active {
-					background-color: $light-grey;
-					color: $black;
-				}
+			}
+		}
+
+		.tab_drawer_heading { display: none; }
+
+		@media only screen and (max-width: $medium-screen) {
+			.tour-tabs {
+				display: none;
+			}
+			.tab_drawer_heading {
+				background-color: $green;
+				color: $white;
+				border-bottom: 1px solid $white;
+				margin: 0;
+				padding: 16px;
+				display: block;
+				cursor: pointer;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			.d_active {
+				background-color: $light-grey;
+				color: $black;
 			}
 		}
 	}
@@ -120,12 +191,6 @@
 			padding: 7px 0;
 			@include rem( font-size, 20px );
 			font-weight: 600;
-
-			&:before {
-				font-family: "Font Awesome 5 Free";
-				content: "\f1c1";
-				margin-right: 10px;
-			}
 		}
 
 

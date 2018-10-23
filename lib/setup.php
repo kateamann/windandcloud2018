@@ -113,6 +113,11 @@ function add_new_image_sizes() {
             'height' => 300, 
             'crop' => TRUE,
         ),
+        'featured-thumb' =>  array(
+            'width' => 150, 
+            'height' => 100, 
+            'crop' => TRUE,
+        ),
     );
     
     foreach( $config as $name => $args ) {

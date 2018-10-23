@@ -43,8 +43,6 @@
 
 
 
-
-
 //* Large tour cards *//
 .large-tour-card {
 	margin: 20px 0;
@@ -66,6 +64,12 @@
 
 	    .price {
 	    	float: right;
+
+	    	.original {
+				text-decoration: line-through;
+				color: $light-grey;
+				margin-left: 10px;
+			}
 	    }
 	}
 

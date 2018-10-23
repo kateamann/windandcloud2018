@@ -13,15 +13,17 @@
 namespace WindAndCloud2018;
 
 
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_tab_script' );
-function enqueue_tab_script() {
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_tour_scripts' );
+function enqueue_tour_scripts() {
     
-	wp_enqueue_script( CHILD_TEXT_DOMAIN . '-tab-accordions', CHILD_URL . "/assets/js/tab-accordions.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
+	wp_enqueue_style( 'flexslider-styles', CHILD_URL . "/assets/css/flexslider.css", array(), CHILD_THEME_VERSION );
+    wp_enqueue_script( 'flexslider', CHILD_URL . "/assets/js/jquery.flexslider-min.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
+    wp_enqueue_script( 'flexslider-init', CHILD_URL . "/assets/js/flexslider-init.js", array( 'flexslider' ), CHILD_THEME_VERSION, true );
+    wp_enqueue_script( CHILD_TEXT_DOMAIN . '-tab-accordions', CHILD_URL . "/assets/js/tab-accordions.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
 }
 
 
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
-add_action( 'genesis_entry_header', __NAMESPACE__ . '\display_booking_button' );
 
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 add_action( 'genesis_entry_footer', __NAMESPACE__ . '\display_tour_programme_download', 11 );
@@ -38,33 +40,139 @@ function display_booking_button() {
 }
 
 function display_tour_programme_download() {
-	if( get_field('programme') ) {
-		$programme = get_field('programme'); ?>
+        $programme = get_field('programme');
 
-		<a href="<?php echo wp_get_attachment_url($programme['id']); ?>" class="download-programme">Download Programm</a>
+        if( $programme ) { ?>
 
-	<?php }
+            <a href="<?php echo $programme['url']; ?>" class="download-programme"><i class="fas fa-file-pdf"></i> Download Programm</a>
+
+            <?php 
+        }
+}
+
+function upcoming_tour_dates() {
+    if( have_rows('tour_dates') ) {
+        echo '<h4>Termine</h4>';
+        while ( have_rows('tour_dates') ) : the_row();
+
+            the_sub_field('tour_start');
+            echo ' - ';
+            the_sub_field('tour_end');
+            echo '<br />';
+
+        endwhile;
+    }
 }
 
 
 
-add_action( 'genesis_before_entry_content', __NAMESPACE__ . '\display_featured_tour_image' );
+//add_action( 'genesis_after_entry_content', __NAMESPACE__ . '\display_featured_tour_image', 3 );
 function display_featured_tour_image() {
-	if ( ! has_post_thumbnail() ) {
-		return;
-	}
-	// Display featured image above content
-	echo '<div class="singular-featured-image">';
-		genesis_image( array( 'size' => 'featured-image' ) );
-	echo '</div>';
+    if ( ! has_post_thumbnail() ) {
+        return;
+    }
+    // Display featured image above content
+    echo '<div class="singular-featured-image">';
+        genesis_image( array( 'size' => 'featured-image' ) );
+    echo '</div>';
+}
+
+ 
+add_action( 'genesis_entry_content', __NAMESPACE__ . '\tour_info_box', 4 );
+function tour_info_box() { ?>
+
+    <div class="info-box">
+        <div class="price">
+            <?php 
+            if(get_field('discount_price')) { ?>
+                <span class="discount">ab €<?php the_field('discount_price'); ?></span><span class="original">€<?php the_field('price'); ?></span> <?php
+            } 
+            else { ?>
+                ab €<?php the_field('price');
+            } ?>
+        </div>
+        <?php upcoming_tour_dates(); ?>
+        <?php display_booking_button(); ?>
+    </div>
+
+<?php
 }
 
 
 
 
 
+add_action( 'genesis_after_entry_content', __NAMESPACE__ . '\gallery_and_map', 5 );
+function gallery_and_map() { ?>
 
-add_action( 'genesis_entry_content', __NAMESPACE__ . '\tour_tabs', 10 );
+    <div class="tour-images">
+
+        <div class="tour-gallery">
+            <?php display_gallery(); ?>
+        </div>
+
+        <div class="tour-map">
+            <?php display_map(); ?>
+        </div>
+
+    </div>
+
+<?php
+}
+
+
+function display_gallery() {
+
+    $images = get_field('tour_gallery');
+
+    if( $images ){ ?>
+    <div id="slider" class="flexslider">
+        <ul class="slides">
+            <?php foreach( $images as $image ): ?>
+                <li>
+                    <img src="<?php echo $image['sizes']['featured-image']; ?>" alt="<?php echo $image['alt']; ?>" />
+                    
+                        <?php if( $image['caption'] ) { ?>
+                            <div class="flexcaption">
+                                <p><?php echo $image['caption']; ?></p>
+                            </div>
+                        <?php
+                        } ?>
+                        
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <div id="carousel" class="flexslider">
+        <ul class="slides">
+            <?php foreach( $images as $image ): ?>
+                <li>
+                    <img src="<?php echo $image['sizes']['featured-thumb']; ?>" alt="<?php echo $image['alt']; ?>" />
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <?php }
+}
+
+
+function display_map() { 
+
+    $map_image = get_field('map_image');
+    $map_display = $map_image['sizes'][ 'medium' ];
+
+    if( !empty($map_image) ) { ?>
+
+        <img src="<?php echo $map_display; ?>" class="alignright" alt="<?php echo $map_image['alt']; ?>" />
+
+    <?php 
+    }
+}
+
+
+
+
+add_action( 'genesis_after_entry_content', __NAMESPACE__ . '\tour_tabs', 6 );
 function tour_tabs() { 
 	?>
 	<div class="tour-info">
@@ -104,7 +212,8 @@ function tour_tabs() {
 			<h3 class="tab_drawer_heading" rel="tab3">Termine & Preise</h3>
 			<div id="tab3" class="tab_content">
 			<h2 class="tab-heading">Termine & Preise</h2>
-			<?php
+                <?php upcoming_tour_dates(); 
+
 				if( get_field('prices_tab') ){
 					the_field('prices_tab');
 				}

@@ -52,7 +52,21 @@ function display_tours_by_type() {
 		    	<!-- Meet the team sections loop -->
 
 				<section class="large-tour-card">
-					<h3><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a><span class="price">ab € <?php the_field('price'); ?></span></h3>
+
+					<h3><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+
+						<span class="price">
+				            <?php 
+				            if(get_field('discount_price')) { ?>
+				                <span class="discount">ab €<?php the_field('discount_price'); ?></span><span class="original">€<?php the_field('price'); ?></span> <?php
+				            } 
+				            else { ?>
+				                ab €<?php the_field('price');
+				            } ?>
+				        </span>
+
+					</h3>
+
 					<div class="tour-teaser">
 				    	<a class="entry-image-link" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 						 	<?php the_post_thumbnail( 'featured-link' );?>

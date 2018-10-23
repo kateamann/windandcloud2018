@@ -2,10 +2,9 @@
 
 This theme is based loosely on the Genesis Sample child theme.
 
-## Features
+#l Featurek
 
-## Dependencies
-
+# Dependencies
 This child theme requires:
 
 -The Genesis framework
