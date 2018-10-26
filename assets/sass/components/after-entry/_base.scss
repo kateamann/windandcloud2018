@@ -9,3 +9,14 @@
 		margin-bottom: 5%;
 	}
 }
+
+.related-posts {
+	background-color: $after-entry--background-color;
+    margin-bottom: $after-entry--margin-bottom;
+    padding: $after-entry--padding;
+    border-radius: $border-radius;
+
+    h3.related-title {
+    	margin-bottom: 30px;
+    }
+}

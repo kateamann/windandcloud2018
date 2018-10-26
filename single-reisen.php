@@ -302,8 +302,15 @@ function related_tours() {
                     $tag_query->the_post();
  
                     $img = genesis_get_image() ? genesis_get_image( array( 'size' => 'featured-link' ) ) : '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/related.png" alt="' . get_the_title() . '" />';
+                         
+                    if(get_field('discount_price')) { 
+                        $price = '<span class="original">€' . get_field('price') . '</span><span class="discount">ab €' . get_field('discount_price') . '</span>';
+                    } 
+                    else {
+                        $price = 'ab €' . get_field('price');
+                    }
  
-                    $related .= '<div class="small-tour-card"><a href="' . get_permalink() . '" rel="bookmark" title="Permanent Link to' . get_the_title() . '"><h4>' . get_the_title() . '</h4>' . $img . '</a></div>';
+                    $related .= '<div class="small-tour-card"><a href="' . get_permalink() . '" rel="bookmark" title="Permanent Link to' . get_the_title() . '"><h4>' . get_the_title() . '</h4>' . $img . '<div class="price">' . $price . '</div></a></div>';
                      
                     $postIDs[] = $post->ID;
  

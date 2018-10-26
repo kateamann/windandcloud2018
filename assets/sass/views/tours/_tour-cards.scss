@@ -1,41 +1,96 @@
 //* Small tour cards *//
+.small-tour-card {
+    margin-bottom: 20px;
+    width: 31.623931623931625%;
+    float: left;
+	margin-left: 2.564102564102564%;
+	position: relative;
 
-.related-list,
-.tours-by-category {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-
-    @media only screen and (max-width: $small-screen) {
-        display: block;
+    &:nth-of-type(3n+1) {
+	    clear: both;
+	    margin-left: 0;
     }
 
-    .small-tour-card {
-	    width: 30%;
-	    margin-bottom: 20px;
+    h4 {
+    	width: 100%;
+    	background-color: $dark-grey;
+    	border-top-left-radius: $border-radius;
+    	border-top-right-radius: $border-radius;
+    	margin-bottom: 0;
+    	padding: 10px;
+    	@include rem( font-size, 18px );
+    	color: $white;
+    }
 
-	    h4 {
-	    	width: 100%;
-	    	background-color: $mid-grey;
-	    	border-top-left-radius: $border-radius;
-	    	border-top-right-radius: $border-radius;
-	    	margin-bottom: 0;
-	    	padding: 10px;
-	    	@include rem( font-size, 18px );
-	    	color: $white;
+    img {
+    	width: 100%;
+    	display: block;
+    }
+
+    span.original {
+			text-decoration: line-through;
+			color: $mid-grey;
+			margin-right: 10px;
+		}
+
+    a:hover {
+    	color: $white;
+    }
+
+    .price {
+    	position: absolute;
+	    display: inline-block;
+	    z-index: 100;
+	    width: 100%;
+	    padding: 10px;
+	    bottom: 0;
+	    left: 0;
+	    background-color: rgba(51, 51, 51, 0.6);
+	    @include rem( font-size, 18px );
+	    text-align: right;
+	    font-weight: 600;
+    }
+
+    img,
+    .price {
+    	border-bottom-left-radius: $border-radius;
+    	border-bottom-right-radius: $border-radius;
+    }
+
+    @media only screen and (max-width: $small-screen) {
+        margin-bottom: 40px;
+        width: 48.717948717948715%;
+
+        &:nth-of-type(3n+1) {
+		    clear: none;
+		    margin-left: 2.564102564102564%;
 	    }
 
-	    img {
-	    	width: 100%;
+        &:nth-of-type(2n+1) {
+		    clear: both;
+		    margin-left: 0;
+	    }
+    } 
+
+    @media only screen and (max-width: $smaller-screen) {
+    	width: 100%;
+    	margin-left: 0;
+
+    	&:nth-of-type(2n+1) {
+		    clear: none;
 	    }
 
-	    @media only screen and (max-width: $small-screen) {
-	        width: 100%;
-	        margin-bottom: 40px;
-	    } 
-	}
+	    &:nth-of-type(3n+1) {
+		    margin-left: 0;
+	    }
+    }
 }
+
+.sidebar .small-tour-card {
+	width: 100%;
+	margin: 0;
+}
+
 
 .tours-by-category {
 	margin-top: 40px;
@@ -48,6 +103,26 @@
 	margin: 20px 0;
 	background-color: $light-grey;
 	display: block;
+	border-bottom-left-radius: $border-radius;
+	border-bottom-right-radius: $border-radius;
+
+
+	@media only screen and (max-width: $medium-screen) {
+		width: 48.717948717948715%;
+		float: left;
+		margin-left: 2.564102564102564%;
+
+		&:nth-of-type(2n+1) {
+			margin-left: 0;
+		    clear: both;
+	    }
+	}
+
+	@media only screen and (max-width: $small-screen) {
+		width: 100%;
+		float: none;
+		margin-left: 0;
+	}
 
 	h3 {
 		@include rem( font-size, 20px );
@@ -73,9 +148,26 @@
 	    }
 	}
 
+	h4.price {
+		@include rem( font-size, 20px );
+		background-color: $light-grey;
+		color: $dark-grey;
+	    margin: 0;
+	    padding: 14px 20px;
+	    text-align: right;
+	    border-bottom: 1px solid $mid-grey;
+
+    	span.original {
+			text-decoration: line-through;
+			color: $mid-grey;
+			margin-right: 10px;
+		}
+
+	}
+
 	.tour-teaser {
-		border-bottom-left-radius: $border-radius;
-		border-bottom-right-radius: $border-radius;
+		// border-bottom-left-radius: $border-radius;
+		// border-bottom-right-radius: $border-radius;
 
 		a.entry-image-link {
 			float: left;
@@ -86,12 +178,22 @@
 				width: 100%;
 				border-bottom-left-radius: $border-radius;
 			}
+
+			@media only screen and (max-width: $big-screen) {
+				width: 100%;
+				float: none;
+			}
 		}
 
 		.tour-info {
 			float: right;
 			width: 50%;
 			padding: 20px;
+
+			@media only screen and (max-width: $big-screen) {
+				width: 100%;
+				float: none;
+			}
 		}
 
 		.more-link {

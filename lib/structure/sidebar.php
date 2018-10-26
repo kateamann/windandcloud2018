@@ -55,69 +55,7 @@ function single_tour_sidebar() {
     }
 }
 
-function related_posts_by_tag() { 
-         
-    global $post;
 
-    $count = 0;
-    $postIDs = array( $post->ID );
-    $related = '';
-    $tags = wp_get_post_tags( $post->ID );
-     
-    if ( $tags ) {
-         
-        foreach ( $tags as $tag ) {
-             
-            $tagID[] = $tag->term_id;             
-        }
-         
-        $args = array(
-            'tag__in'               => $tagID,
-            // 'post__not_in'          => $postIDs,
-            'post_type' 			=> 'post',
-            'showposts'             => 3,
-            'ignore_sticky_posts'   => 1,
-            'tax_query'             => array(
-                array(
-                                    'taxonomy'  => 'post_format',
-                                    'field'     => 'slug',
-                                    'terms'     => array( 
-                                        'post-format-link', 
-                                        'post-format-status', 
-                                        'post-format-aside', 
-                                        'post-format-quote'
-                                        ),
-                                    'operator'  => 'NOT IN'
-                )
-            )
-        );
-
-        $tag_query = new \WP_Query( $args );
-         
-        if ( $tag_query->have_posts() ) {
-             
-            while ( $tag_query->have_posts() ) {
-
-                $tag_query->the_post();
-
-                $related .= '<div ' . post_class() . '><h2><a href="' . get_permalink() . '" rel="bookmark" title="Permanent Link to' . get_the_title() . '">' . get_the_title() . '</a></h2></div>';
-                 
-                // $postIDs[] = $post->ID;
-
-                // $count++;
-            }
-        }
-    }
-
-    if ( $related ) {
-         
-        printf( '<section class="widget featured-content featuredpost"><div class="widget-wrap"><h3 class="widgettitle widget-title">Related Posts</h3>%s</div></section>', $related );
-     
-    }
-     
-    wp_reset_query();
-
-}
 
 function related_by_tag() {
      
@@ -125,9 +63,6 @@ function related_by_tag() {
          
         global $post;
  
-        $count = 0;
-        $postIDs = array( $post->ID );
-        $related = '';
         $tags = wp_get_post_tags( $post->ID );
          
         if ( $tags ) {
@@ -140,8 +75,7 @@ function related_by_tag() {
              
             $args = array(
                 'tag__in'               => $tagID,
-                'post__not_in'          => $postIDs,
-                'post_type' 			=> 'reisen',
+                'post_type'             => 'post',
                 'showposts'             => 3,
                 'ignore_sticky_posts'   => 1,
                 'tax_query'             => array(
@@ -161,48 +95,90 @@ function related_by_tag() {
  
             $tag_query = new \WP_Query( $args );
              
-            
-            ?>
-            <section class="widget featured-content featuredpost">
-            	<div class="widget-wrap">
-            		<h3 class="widgettitle widget-title">Related Posts</h3>
-            <?php
 
             if ( $tag_query->have_posts() ) {
+
+                ?>
+                <section class="widget featured-content featuredpost">
+                    <div class="widget-wrap">
+                        <h3 class="widgettitle widget-title">Related Posts</h3>
+                <?php
                  
                 while ( $tag_query->have_posts() ) {
                      
                     $tag_query->the_post(); ?>
 
-                    	<div <?php post_class(); ?>>
-                    		<h2>
-                    			<a href="" rel="bookmark" title="Permanent Link to">
-                    				<?php get_the_title(); ?>
-                    			</a>
-                    		</h2>
-                    	</div>
-
-
+                        <div <?php post_class(); ?>>
+                            <h2>
+                                <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to<?php the_title_attribute(); ?>">
+                                    <?php the_title(); ?>
+                                </a>
+                            </h2>
+                            <?php genesis_post_info(); ?>
+                        </div>
 
                     <?php
- 
-                    
-                     
                     
                 }
+
+                ?>
+
+                </div>
+            </section>
+
+            <?php
             }
-
-            ?>
-
-			    </div>
-			</section>
-
-			<?php
         }
          
         wp_reset_query();
          
     }
 }
+
+
+
+
+
+add_action( 'genesis_sidebar', __NAMESPACE__ . '\featured_tour_in_sidebar', 3 );
+function featured_tour_in_sidebar() {
+    global $post;
+
+    $post_object = get_field('featured_tour');
+
+    if( $post_object ): 
+
+        // override $post
+        $post = $post_object;
+        setup_postdata( $post ); 
+
+        ?>
+
+        <section class="widget featured-content featuredpost">
+            <div class="widget-wrap">
+                <h3 class="widgettitle widget-title">Featured Tour</h3>
+                <div class="small-tour-card">
+                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                    <h4><?php the_title(); ?></h4> 
+                         <?php the_post_thumbnail( 'featured-link' );?>
+                    <div class="price">
+                        <?php 
+                        if(get_field('discount_price')) { ?>
+                            <span class="original">€<?php the_field('price'); ?></span><span class="discount">ab €<?php the_field('discount_price'); ?></span> <?php
+                        } 
+                        else { ?>
+                            ab €<?php the_field('price');
+                        } ?>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+    <?php endif;
+}
+
+
+
 
 
