@@ -24,11 +24,23 @@ function enqueue_tour_scripts() {
 
 
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
-
+add_action( 'genesis_entry_header', __NAMESPACE__ . '\display_subline', 12 );
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 add_action( 'genesis_entry_footer', __NAMESPACE__ . '\display_tour_programme_download', 11 );
 add_action( 'genesis_entry_footer', __NAMESPACE__ . '\display_booking_button', 12 );
 
+
+
+function display_subline() { 
+    $subline = get_field('subline');
+
+    if( $subline ) { ?>
+
+        <h5 class="trip-subline"><?php echo $subline; ?></h5>
+
+    <?php 
+    }
+}
 
 
 function display_booking_button() { 
@@ -38,6 +50,7 @@ function display_booking_button() {
 	<?php			
 	}
 }
+
 
 function display_tour_programme_download() {
         $programme = get_field('programme');
@@ -82,6 +95,8 @@ add_action( 'genesis_entry_content', __NAMESPACE__ . '\tour_info_box', 4 );
 function tour_info_box() { ?>
 
     <div class="info-box">
+        <?php display_map(); ?>
+        <?php display_booking_button(); ?>
         <div class="price">
             <?php 
             if(get_field('discount_price')) { ?>
@@ -92,7 +107,6 @@ function tour_info_box() { ?>
             } ?>
         </div>
         <?php upcoming_tour_dates(); ?>
-        <?php display_booking_button(); ?>
     </div>
 
 <?php
@@ -100,70 +114,61 @@ function tour_info_box() { ?>
 
 
 
-
-
-add_action( 'genesis_after_entry_content', __NAMESPACE__ . '\gallery_and_map', 5 );
-function gallery_and_map() { ?>
-
+add_action( 'genesis_entry_content', __NAMESPACE__ . '\insert_gallery', 10 );
+function insert_gallery() { ?>
     <div class="tour-images">
-
-        <div class="tour-gallery">
-            <?php display_gallery(); ?>
-        </div>
-
-        <div class="tour-map">
-            <?php display_map(); ?>
-        </div>
-
+        <?php display_gallery(); ?>
     </div>
 
 <?php
 }
+
 
 
 function display_gallery() {
-
     $images = get_field('tour_gallery');
 
     if( $images ){ ?>
-    <div id="slider" class="flexslider">
-        <ul class="slides">
-            <?php foreach( $images as $image ): ?>
-                <li>
-                    <img src="<?php echo $image['sizes']['featured-image']; ?>" alt="<?php echo $image['alt']; ?>" />
-                    
-                        <?php if( $image['caption'] ) { ?>
-                            <div class="flexcaption">
-                                <p><?php echo $image['caption']; ?></p>
-                            </div>
-                        <?php
-                        } ?>
+    <div class="tour-gallery">
+        <div id="slider" class="flexslider">
+            <ul class="slides">
+                <?php foreach( $images as $image ): ?>
+                    <li>
+                        <img src="<?php echo $image['sizes']['featured-image']; ?>" alt="<?php echo $image['alt']; ?>" />
                         
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-    <div id="carousel" class="flexslider">
-        <ul class="slides">
-            <?php foreach( $images as $image ): ?>
-                <li>
-                    <img src="<?php echo $image['sizes']['featured-thumb']; ?>" alt="<?php echo $image['alt']; ?>" />
-                </li>
-            <?php endforeach; ?>
-        </ul>
+                            <?php if( $image['caption'] ) { ?>
+                                <div class="flexcaption">
+                                    <p><?php echo $image['caption']; ?></p>
+                                </div>
+                            <?php
+                            } ?>
+                            
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        <div id="carousel" class="flexslider">
+            <ul class="slides">
+                <?php foreach( $images as $image ): ?>
+                    <li>
+                        <img src="<?php echo $image['sizes']['featured-thumb']; ?>" alt="<?php echo $image['alt']; ?>" />
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
     </div>
     <?php }
 }
 
 
 function display_map() { 
-
     $map_image = get_field('map_image');
     $map_display = $map_image['sizes'][ 'medium' ];
 
     if( !empty($map_image) ) { ?>
-
-        <img src="<?php echo $map_display; ?>" class="alignright" alt="<?php echo $map_image['alt']; ?>" />
+        <div class="tour-map">
+            <img src="<?php echo $map_display; ?>" alt="<?php echo $map_image['alt']; ?>" />
+        </div>
 
     <?php 
     }

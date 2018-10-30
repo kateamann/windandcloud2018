@@ -3,10 +3,6 @@
 	.entry-header {
 		margin-bottom: 20px;
 
-		h1 {
-			float: left;
-		}
-
 		.button.book-tour {
 			float: right;
 			margin: 0 0 20px 20px;
@@ -14,12 +10,18 @@
 	}
 
 	.info-box {
-		width: 225px;
+		width: 250px;
 		float: right;
 		background-color: $light-grey;
 		border-radius: $border-radius;
 		padding: 20px;
-		margin: 0 0 20px 40px;
+		margin: 0 0 20px 20px;
+
+		@media only screen and (max-width: $big-screen) {
+			width: 100%;
+			float: none;
+			margin-left: 0;
+		}
 
 		.price {
 			@include rem( font-size, 20px );
@@ -35,20 +37,40 @@
 		}
 
 		a.button.book-tour {
-			margin-top: 40px;
+			margin-bottom: 40px;
 		    width: 100%;
 		    text-align: center;
 		}
 	}
 
+	.tour-map {
+		width: 100%;
+		margin-top: 20px;
+
+		img {
+			display: block;
+
+			@media only screen and (max-width: $big-screen) {
+				float: right;
+			}
+		}
+	}
+
 	.tour-images {
 		margin: 20px 0;
-		display: flex;
-		justify-content: space-between;
+		width: 610px;
+
+		@media only screen and (max-width: $bigger-screen) {
+			width: 470px;
+		}
+
+		@media only screen and (max-width: $big-screen) {
+			width: 100%;
+		}
 	}
 
 	.tour-gallery {
-		width: 650px;
+		width: 100%;
 
 		.flexslider {
 			margin-bottom: 5px;
@@ -58,6 +80,14 @@
 
 		.flex-direction-nav a:before {
 		    @include rem( font-size, 30px );
+		}
+
+		ul {
+			margin: 0;
+		}
+
+		ul > li {
+			list-style-type: none;
 		}
 
 		ul.slides li {
@@ -82,9 +112,7 @@
 		}
 	}
 
-	.tour-map {
-		width: 225px;
-	}
+
 
 
 	.tour-info {

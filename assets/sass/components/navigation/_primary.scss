@@ -1,12 +1,2 @@
 /* ## Primary Navigation
 --------------------------------------------- */
-
-.nav-primary {
-	width: $primary-sidebar--width;
-	float: left;
-	clear: both;
-
-	@media only screen and (max-width: $medium-screen) {
-		width: 100%;
-	}
-}

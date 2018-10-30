@@ -260,7 +260,7 @@ function blog_post_related_tours() {
  
         if ( $related ) {
              
-            printf( '<div class="related-posts"><h3 class="related-title">You might also like</h3><div class="related-list">%s</div></div>', $related );
+            printf( '<div class="related-posts"><h3 class="related-title">Related Tours</h3><div class="related-list">%s</div></div>', $related );
          
         }
          
