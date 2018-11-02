@@ -45,46 +45,15 @@ function display_tours_by_type() {
 
     <div class="tours-by-type">
 
-		    <?php 
+	    <?php 
 
-		    while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-		    
-		    	<!-- Meet the team sections loop -->
+	    while ( $the_query->have_posts() ) : $the_query->the_post();
+	    
+			get_template_part('lib/views/large-tour-card'); 
 
-				<section class="large-tour-card">
+		endwhile;
 
-					<h3><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-
-						
-					</h3>
-
-					<h4 class="price">
-						<?php 
-			            if(get_field('discount_price')) { ?>
-			                <span class="original">€<?php the_field('price'); ?></span><span class="discount">ab €<?php the_field('discount_price'); ?></span> <?php
-			            } 
-			            else { ?>
-			                ab €<?php the_field('price');
-			            } ?>
-					</h4>
-
-					<div class="tour-teaser">
-				    	<a class="entry-image-link" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-						 	<?php the_post_thumbnail( 'featured-link' );?>
-						</a>
-
-						<div class="tour-info">
-							<?php the_excerpt(); ?>
-							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="more-link button">Find out more</a>
-					    </div>
-					</div>
-				</section>
-
-				<?php
-			endwhile;
-
-			// Reset Second Loop Post Data
-			wp_reset_postdata(); ?>
+		wp_reset_postdata(); ?>
 
     </div> <?php
 }

@@ -138,41 +138,45 @@ function related_by_tag() {
 
 add_action( 'genesis_sidebar', __NAMESPACE__ . '\featured_tour_in_sidebar', 3 );
 function featured_tour_in_sidebar() {
-    global $post;
+    if( !is_front_page() ) {
 
-    $post_object = get_field('featured_tour');
+        global $post;
 
-    if( $post_object ): 
+        $post_object = get_field('featured_tour');
 
-        // override $post
-        $post = $post_object;
-        setup_postdata( $post ); 
+        if( $post_object ): 
 
-        ?>
+            // override $post
+            $post = $post_object;
+            setup_postdata( $post ); 
 
-        <section class="widget featured-content featuredpost">
-            <div class="widget-wrap">
-                <h3 class="widgettitle widget-title">Featured Tour</h3>
-                <div class="small-tour-card">
-                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                    <h4><?php the_title(); ?></h4> 
-                         <?php the_post_thumbnail( 'featured-link' );?>
-                    <div class="price">
-                        <?php 
-                        if(get_field('discount_price')) { ?>
-                            <span class="original">€<?php the_field('price'); ?></span><span class="discount">ab €<?php the_field('discount_price'); ?></span> <?php
-                        } 
-                        else { ?>
-                            ab €<?php the_field('price');
-                        } ?>
+            ?>
+
+            <section class="widget featured-content featuredpost">
+                <div class="widget-wrap">
+                    <h3 class="widgettitle widget-title">Featured Tour</h3>
+                    <div class="small-tour-card">
+                        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                        <h4><?php the_title(); ?></h4> 
+                             <?php the_post_thumbnail( 'featured-link' );?>
+                        <div class="price">
+                            <?php 
+                            if(get_field('discount_price')) { ?>
+                                <span class="original">€<?php the_field('price'); ?></span><span class="discount">ab €<?php the_field('discount_price'); ?></span> <?php
+                            } 
+                            else { ?>
+                                ab €<?php the_field('price');
+                            } ?>
+                        </div>
+                        </a>
                     </div>
-                    </a>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
-    <?php endif;
+            <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+        <?php endif;
+
+    }
 }
 
 

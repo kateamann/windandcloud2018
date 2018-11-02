@@ -3,7 +3,6 @@
 
 .site-footer {
 	background-color: $site-footer--background-color;
-	border-top: 1px solid $site-footer--border-color;
 	@include rem( font-size, $site-footer--font-size );
 	padding: 60px 0;
 
@@ -18,18 +17,23 @@
 
 	.widget {
 		padding: 16px;
+		margin-bottom: 0;
 	}
 
-	.leftfoot,
-	.rightfoot {
-		
-	}
+	.menu-social-links-container {
+		ul > li {
+		    margin-bottom: 0px;
+		    padding: 16px;
+		    border-bottom: none;
+		    display: inline-block;
 
-	.leftfoot {
+		    &:first-of-type {
+		    	padding-left: 0;
+		    }
+		}
 
-	}
-
-	.rightfoot {
-
+		.fab {
+	    	@include rem( font-size, 20px );
+	    }
 	}
 }

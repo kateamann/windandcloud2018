@@ -31,47 +31,70 @@
 		background-color: $light-grey;
 		border-bottom-left-radius: $border-radius;
 		border-bottom-right-radius: $border-radius;
-		padding: 20px;
+		padding: 0;
 		margin-right: 20px;
 		margin-left: 20px;
 
 		img.alignleft {
-			width: 300px;
-			height: auto;
+			display: block;
+			width: 100%;
 			margin-bottom: 0;
-		}
+			border-bottom-left-radius: $border-radius;
 
-		a.entry-image-link {
-			width: 300px;
-		    float: left;
-
-		    @media only screen and (max-width: $big-screen) {
-				width: 200px;
+			 @media only screen and (max-width: $big-screen) {
+				margin-bottom: 24px;
+				margin-right: 0;
 			}
 
 			@media only screen and (max-width: $medium-screen) {
-				width: 300px;
+				margin-bottom: 0;
+				margin-right: 24px;
+			}
+
+			@media only screen and (max-width: $small-screen) {
+				margin-bottom: 24px;
+				margin-right: 0;
+			}
+		}
+
+		a.entry-image-link {
+			width: 50%;
+		    float: left;
+
+		    @media only screen and (max-width: $big-screen) {
+				width: 100%;
+				float: none;
+			}
+
+			@media only screen and (max-width: $medium-screen) {
+				width: 50%;
+				float: left;
+			}
+
+			@media only screen and (max-width: $small-screen) {
+				width: 100%;
+				float: none;
 			}
 		}
 
 		.entry-content {
+			padding: 20px;
 			float: right;
-			width: 550px;
-
-			@media only screen and (max-width: $bigger-screen) {
-				width: 400px;
-			}
+			width: 50%;
 
 			@media only screen and (max-width: $big-screen) {
-				width: 330px;
+				width: 100%;
+				float: none;
 			}
 
 			@media only screen and (max-width: $medium-screen) {
-				width: 400px;
+				width: 50%;
+				float: right;
 			}
 
 			@media only screen and (max-width: $small-screen) {
-				width: 300px;
+				width: 100%;
+				float: none;
 			}
 		}
 

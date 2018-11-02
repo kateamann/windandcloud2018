@@ -48,9 +48,12 @@ function post_info_filter($post_info) {
 
 add_action( 'genesis_before_entry_content', __NAMESPACE__ . '\display_featured_image' );
 function display_featured_image() {
-	if ( ! is_singular( array( 'post', 'page' ) ) ) {
+	if ( ! is_singular( array( 'post', 'page', 'team-bios' ) ) ) {
 		return;
 	}
+    if ( is_page_template() ) {
+        return;
+    }
 	if ( ! has_post_thumbnail() ) {
 		return;
 	}

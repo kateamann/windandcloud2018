@@ -107,23 +107,6 @@
 	border-bottom-right-radius: $border-radius;
 
 
-	@media only screen and (max-width: $medium-screen) {
-		width: 48.717948717948715%;
-		float: left;
-		margin-left: 2.564102564102564%;
-
-		&:nth-of-type(2n+1) {
-			margin-left: 0;
-		    clear: both;
-	    }
-	}
-
-	@media only screen and (max-width: $small-screen) {
-		width: 100%;
-		float: none;
-		margin-left: 0;
-	}
-
 	h3 {
 		@include rem( font-size, 20px );
 		background-color: $mid-grey;
@@ -140,34 +123,20 @@
 	    .price {
 	    	float: right;
 
+	    	@media only screen and (max-width: $small-screen) {
+	    		float: none;
+	    		margin-left: 10px;
+	    	}
+
 	    	.original {
 				text-decoration: line-through;
 				color: $light-grey;
-				margin-left: 10px;
+				margin-right: 10px;
 			}
 	    }
 	}
 
-	h4.price {
-		@include rem( font-size, 20px );
-		background-color: $light-grey;
-		color: $dark-grey;
-	    margin: 0;
-	    padding: 14px 20px;
-	    text-align: right;
-	    border-bottom: 1px solid $mid-grey;
-
-    	span.original {
-			text-decoration: line-through;
-			color: $mid-grey;
-			margin-right: 10px;
-		}
-
-	}
-
 	.tour-teaser {
-		// border-bottom-left-radius: $border-radius;
-		// border-bottom-right-radius: $border-radius;
 
 		a.entry-image-link {
 			float: left;
@@ -175,11 +144,26 @@
 			height: auto;
 
 			img {
+				display: block;
 				width: 100%;
 				border-bottom-left-radius: $border-radius;
+
+				@media only screen and (max-width: $big-screen) {
+					border-bottom-left-radius: 0;
+				}
 			}
 
 			@media only screen and (max-width: $big-screen) {
+				width: 100%;
+				float: none;
+			}
+
+			@media only screen and (max-width: $medium-screen) {
+				width: 50%;
+				float: left;
+			}
+
+			@media only screen and (max-width: $small-screen) {
 				width: 100%;
 				float: none;
 			}
@@ -194,11 +178,27 @@
 				width: 100%;
 				float: none;
 			}
+
+			@media only screen and (max-width: $medium-screen) {
+				width: 50%;
+				float: right;
+			}
+
+			@media only screen and (max-width: $small-screen) {
+				width: 100%;
+				float: none;
+			}
 		}
+		
 
 		.more-link {
 			float: right;
 			margin-top: 20px;
+
+			@media only screen and (max-width: $big-screen) {
+				margin-bottom: 20px;
+			}
 		}
+
 	}
 }

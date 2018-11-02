@@ -2,6 +2,7 @@
 
 .sidebar-primary {
 	float: right;
+	clear: left;
 	width: $primary-sidebar--width;
 
 	@media only screen and (max-width: $bigger-screen) {

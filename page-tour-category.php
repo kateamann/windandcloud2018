@@ -47,7 +47,6 @@ function display_tour_types() {
 
 		    while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 		    
-		    	<!-- Meet the team sections loop -->
 
 				<div class="small-tour-card">
 					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">

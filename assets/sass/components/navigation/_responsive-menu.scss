@@ -41,12 +41,15 @@
 	.sub-menu-toggle {
 		background-color: $responsive-nav--background-color;
 		border-width: 0;
-		color: $responsive-nav--color;
 		display: block;
 		margin: 0 auto;
 		overflow: hidden;
 		text-align: center;
 		visibility: visible;
+	}
+
+	.menu-toggle {
+		color: $responsive-nav--color;
 	}
 
 	.menu-toggle:focus,
@@ -56,10 +59,15 @@
 		color: $responsive-nav--hover-color;
 	}
 
+	.sub-menu-toggle {
+		color: $green;
+	}
+
 	.sub-menu-toggle:focus,
-	.sub-menu-toggle:hover {
-		background-color: $green;
-		color: $white;
+	.sub-menu-toggle:hover,
+	.current-menu-item .sub-menu-toggle {
+		background-color: transparent;
+		color: $dark-grey;
 	}
 
 	.menu-toggle {

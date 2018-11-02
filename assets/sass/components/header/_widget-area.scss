@@ -5,6 +5,7 @@
 	float: right;
 	text-align: right;
 	width: $header-widget-area--width;
+	background-color: transparent;
 
 	@media only screen and (max-width: $big-screen) {
 		width: $header-widget-area--width__big-screen;
@@ -13,5 +14,41 @@
 	@media only screen and (max-width: $medium-screen) {
 		width: 100%;
 		text-align: center;
+	}
+
+	.widget {
+		margin-bottom: 0;
+		float: right;
+	}
+
+	.genesis-nav-menu {
+		background-color: transparent;
+		padding: 0;
+		border-radius: 0;
+		font-weight: 600;
+
+		.menu-item {
+		    display: inline-block;
+		    text-align: right;
+		    padding: 0;
+		    border-bottom: none; 
+		}
+
+		a {
+	    	color: $white;
+	    }
+
+	    a:focus, 
+	    a:hover, 
+	    .current-menu-item > a, 
+	    .sub-menu .current-menu-item > a:focus, 
+	    .sub-menu .current-menu-item > a:hover {
+    		color: $dark-grey;
+    		background-color: transparent;
+    	}
+
+	    .fab {
+	    	@include rem( font-size, 20px );
+	    }
 	}
 }

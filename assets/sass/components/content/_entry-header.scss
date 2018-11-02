@@ -16,6 +16,7 @@
 .archive,
 .search {
 	.entry-title {
+		@include rem( font-size, 20px );
 		background-color: $mid-grey;
 		border-top-left-radius: $border-radius;
 		border-top-right-radius: $border-radius;

@@ -91,22 +91,27 @@ function display_featured_tour_image() {
 }
 
  
-add_action( 'genesis_entry_content', __NAMESPACE__ . '\tour_info_box', 4 );
+add_action( 'genesis_before_entry_content', __NAMESPACE__ . '\tour_info_box', 4 );
 function tour_info_box() { ?>
 
     <div class="info-box">
-        <?php display_map(); ?>
-        <?php display_booking_button(); ?>
-        <div class="price">
-            <?php 
-            if(get_field('discount_price')) { ?>
-                <span class="discount">ab €<?php the_field('discount_price'); ?></span><span class="original">€<?php the_field('price'); ?></span> <?php
-            } 
-            else { ?>
-                ab €<?php the_field('price');
-            } ?>
+
+        <div class="info">
+            <?php display_booking_button(); ?>
+        
+            <div class="price">
+                <?php 
+                if(get_field('discount_price')) { ?>
+                    <span class="discount">ab €<?php the_field('discount_price'); ?></span><span class="original">€<?php the_field('price'); ?></span> <?php
+                } 
+                else { ?>
+                    ab €<?php the_field('price');
+                } ?>
+            </div>
+            <?php upcoming_tour_dates(); ?>
         </div>
-        <?php upcoming_tour_dates(); ?>
+
+        <?php display_map(); ?>
     </div>
 
 <?php
