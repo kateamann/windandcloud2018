@@ -13,7 +13,7 @@
 
     h4 {
     	width: 100%;
-    	background-color: $dark-grey;
+    	background-color: $mid-grey;
     	border-top-left-radius: $border-radius;
     	border-top-right-radius: $border-radius;
     	margin-bottom: 0;
@@ -94,8 +94,12 @@
 
 .tours-by-category {
 	margin-top: 40px;
+	margin-bottom: 10px;
 }
 
+.home-featured-tour {
+	margin-top: 40px;
+}
 
 
 //* Large tour cards *//

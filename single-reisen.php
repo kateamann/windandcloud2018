@@ -192,7 +192,7 @@ function tour_tabs() {
 		        <li class="active" rel="tab1">Programm</a></li>
 		        <li rel="tab2">Leistungen</a></li>
 		        <li rel="tab3">Termine & Preise</a></li>
-		        <li rel="tab4">Bewertungene</a></li>
+		        <li rel="tab4">Bewertungen</a></li>
 		    </ul>
 		</div>
 
@@ -207,9 +207,9 @@ function tour_tabs() {
 			</div>
 			<!-- #tab1 -->
 
-			<h3 class="tab_drawer_heading" rel="tab2">Leistunge</h3>
+			<h3 class="tab_drawer_heading" rel="tab2">Leistungen</h3>
 			<div id="tab2" class="tab_content">
-			<h2 class="tab-heading">Leistunge</h2>
+			<h2 class="tab-heading">Leistungen</h2>
 			<?php  if( get_field('dates_tab') ){
 					the_field('dates_tab');
 				}
@@ -234,9 +234,9 @@ function tour_tabs() {
 			</div>
 			<!-- #tab3 -->
 
-			<h3 class="tab_drawer_heading" rel="tab4">Bewertungene</h3>
+			<h3 class="tab_drawer_heading" rel="tab4">Bewertungen</h3>
 			<div id="tab4" class="tab_content">
-			<h2 class="tab-heading">Bewertungene</h2>
+			<h2 class="tab-heading">Bewertungen</h2>
 			<?php if( get_field('ratings_tab') ){
 					the_field('ratings_tab');
 				} ?>

@@ -6,6 +6,14 @@
 	@include rem( font-size, $site-footer--font-size );
 	padding: 60px 0;
 
+	.leftfoot {
+		text-align: right;
+
+		@media only screen and (max-width: $small-screen) {
+			text-align: left;
+		}
+	}
+
 	p {
 		margin-bottom: 0;
 	}
@@ -18,6 +26,18 @@
 	.widget {
 		padding: 16px;
 		margin-bottom: 0;
+	}
+
+	.textwidget img {
+		max-width: 100px;
+		float: right;
+		margin-left: 20px;
+
+		@media only screen and (max-width: $small-screen) {
+			float: left;
+			margin-left: 0;
+			margin-right: 20px;
+		}
 	}
 
 	.menu-social-links-container {

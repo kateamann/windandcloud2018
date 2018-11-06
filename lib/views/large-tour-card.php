@@ -21,7 +21,7 @@
 
 		<div class="tour-info">
 			<?php the_excerpt(); ?>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="more-link button">Find out more</a>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="more-link button">Zu den Reisedetails</a>
 	    </div>
 	</div>
 </section>

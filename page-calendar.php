@@ -25,8 +25,8 @@ function group_travel_calendar() {
 			A.post_id, 
 			A.meta_value as startdate, 
 			B.meta_value as enddate
-		FROM wp_postmeta as A 
-		JOIN wp_postmeta as B on A.post_id 
+		FROM wac_n06_postmeta as A 
+		JOIN wac_n06_postmeta as B on A.post_id 
 			WHERE A.post_id = B.post_id 
 			AND A.meta_key LIKE 'tour_dates_%_tour_start' AND B.meta_key LIKE 'tour_dates_%_tour_end'
 		    AND SUBSTRING(B.meta_key,12,5) = SUBSTRING(A.meta_key,12,5)
@@ -74,7 +74,7 @@ function group_travel_calendar() {
 	  	  
 	  	  <div class="table-wrapper">
 	  	  	<table>
-	  	  		<thead><tr><td>Datum</td><td>Name der Tour</td><td class="tour-tag">Tour Kategorie</td><td></td></tr></thead>
+	  	  		<thead><tr><td class="date">Datum</td><td class="tour-name">Name der Tour</td><td class="tour-tag">Tour Kategorie</td><td class="arrow"></td></tr></thead>
 	  	  		<tbody>
 		<?php
 	}
@@ -84,10 +84,10 @@ function group_travel_calendar() {
 	// row
 		?>
 			<tr onclick="location.href='<?php the_permalink( $post_id ); ?>'">
-				<td><?php echo date('d.m.y', strtotime($startdate)) . ' - ' . date('d.m.y', strtotime($enddate)) ?></td>
-				<td><?php echo $tour_name; ?></td>
+				<td class="date"><?php echo date('d.m.y', strtotime($startdate)) . ' - ' . date('d.m.y', strtotime($enddate)) ?></td>
+				<td class="tour-name"><?php echo $tour_name; ?></td>
 				<td class="tour-tag"><?php echo $tour_tags[0]->name; ?></td>
-				<td><i class="fas fa-caret-right"></i></td>
+				<td class="arrow"><i class="fas fa-caret-right"></i></td>
 			</tr>
 
 			<?php

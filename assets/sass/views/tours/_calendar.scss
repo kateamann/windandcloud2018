@@ -21,37 +21,49 @@
 
 	table {
 		margin-bottom: 0;
-	}
 
-	table td:first-child, table th:first-child {
-	    padding-left: 6px;
-	}
+		td:first-child, 
+		th:first-child {
+		    padding-left: 6px;
+		}
 
-	table thead {
-		border-bottom: 2px solid $mid-grey;
-	}
+		thead {
+			border-bottom: 2px solid $mid-grey;
+		}
 
-	table tbody tr:hover {
-		background-color: $white;
-		cursor: pointer;
-	}
+		tbody tr:hover {
+			background-color: $white;
+			cursor: pointer;
+		}
 
-	table tbody td:nth-child(3) {
-		font-weight: 300;
-	}
+		td.date {
+			width: 25%;
+		}
 
-	table tbody td:nth-child(4) {
-		color: $green;
-	}
+		td.tour-name {
+		}
 
-	@media only screen and (max-width: $medium-screen) {
-		table {
+		td.tour-tag {
+			width: 25%;
+
+			@media only screen and (max-width: $medium-screen) {
+				display: none;
+			}
+		}
+
+		td.arrow {
+			width: 3%;
+			text-align: right;
+		}
+
+		tbody td.arrow {
+			color: $green;
+		}
+
+		@media only screen and (max-width: $medium-screen) {
 			@include rem( font-size, 14px );
 		}
 
-        table td.tour-tag {
-        	display: none;
-        }
-    }
+	}
 
 }	
