@@ -48,7 +48,7 @@ function post_info_filter($post_info) {
 
 add_action( 'genesis_before_entry_content', __NAMESPACE__ . '\display_featured_image' );
 function display_featured_image() {
-	if ( ! is_singular( array( 'post', 'page', 'team-bios' ) ) ) {
+	if ( ! is_singular( array( 'page' ) ) ) {
 		return;
 	}
     if ( is_page_template() ) {
@@ -61,6 +61,13 @@ function display_featured_image() {
 	echo '<div class="singular-featured-image">';
 		genesis_image( array( 'size' => 'featured-image' ) );
 	echo '</div>';
+}
+
+add_filter( 'tiled_gallery_content_width', __NAMESPACE__ . '\custom_jetpack_gallery_width' );
+function custom_jetpack_gallery_width($width){
+    $tiled_gallery_content_width = $width;
+    $width = 880;
+    return $width;
 }
 
 

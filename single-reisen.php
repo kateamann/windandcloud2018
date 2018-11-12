@@ -179,6 +179,11 @@ function display_map() {
     }
 }
 
+function display_page_content($path) {
+    $post = get_page_by_path($path);
+    $content = apply_filters('the_content', $post->post_content);
+    echo $content;
+}
 
 
 
@@ -222,14 +227,16 @@ function tour_tabs() {
 			<h3 class="tab_drawer_heading" rel="tab3">Termine & Preise</h3>
 			<div id="tab3" class="tab_content">
 			<h2 class="tab-heading">Termine & Preise</h2>
-                <?php upcoming_tour_dates(); 
+                <?php 
+
+                upcoming_tour_dates(); 
 
 				if( get_field('prices_tab') ){
 					the_field('prices_tab');
 				}
-				if( get_field('subscriber_tab') ){
-					the_field('subscriber_tab');
-				}
+
+                display_page_content('buchung');
+
 			?>
 			</div>
 			<!-- #tab3 -->
