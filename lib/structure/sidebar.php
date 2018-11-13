@@ -22,6 +22,13 @@ function register_sidebar_widget_areas() {
 			'before_widget' => '<section class="widget">',
     		'after_widget' => '</section>',
 		),
+        array(
+            'id'          => 'blog-home-sidebar',
+            'name'        => __( 'Blog Home Sidebar', CHILD_THEME_NAME ),
+            'description' => __( 'Blog Home Sidebar', CHILD_THEME_NAME ),
+            'before_widget' => '<section class="widget">',
+            'after_widget' => '</section>',
+        ),
 	);
 	foreach ( $widget_areas as $widget_area ) {
 		genesis_register_sidebar( $widget_area );
@@ -31,12 +38,19 @@ function register_sidebar_widget_areas() {
 
 add_action( 'get_header', __NAMESPACE__ . '\blog_sidebar' );
 function blog_sidebar() {
-	if ( is_home() || is_archive() || is_singular( 'post' ) ) {
+	if ( is_home() ) {
         remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 
         add_action( 'genesis_sidebar', function() {
-			genesis_widget_area ('blog-sidebar');
+			genesis_widget_area ('blog-home-sidebar');
 		} );
+    }
+    if ( is_archive() || is_singular( 'post' ) ) {
+        remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
+
+        add_action( 'genesis_sidebar', function() {
+            genesis_widget_area ('blog-sidebar');
+        } );
     }
 }
 
@@ -134,6 +148,18 @@ function related_by_tag() {
 
 
 
+add_action( 'genesis_sidebar', __NAMESPACE__ . '\newsletter_button', 2 );
+function newsletter_button() { ?>
+    <section class="newsletter widget">
+        <div class="createsend-button" data-listid="i/27/967/E23/427E004FF3A4670C"></div>
+        <script type="text/javascript">
+            (function () { 
+                var e = document.createElement('script'); e.type = 'text/javascript'; e.async = true; e.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://btn.createsend1.com/js/sb.min.js?v=3'; e.className = 'createsend-script'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(e, s); 
+            })();
+        </script>
+    </section>
+    <?php
+}
 
 
 add_action( 'genesis_sidebar', __NAMESPACE__ . '\featured_tour_in_sidebar', 3 );
@@ -159,7 +185,7 @@ function featured_tour_in_sidebar() {
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                         <h4><?php the_title(); ?></h4> 
                              <?php the_post_thumbnail( 'featured-link' );?>
-                        <div class="price">
+                        <div class="tour-overlay">
                             <?php 
                             if(get_field('discount_price')) { ?>
                                 <span class="original">€<?php the_field('price'); ?></span><span class="discount">ab €<?php the_field('discount_price'); ?></span> <?php

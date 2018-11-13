@@ -19,12 +19,6 @@ function display_home_tour_blocks() { ?>
 
 	<?php
 
-	/*
-	*  Loop through post objects (assuming this is a multi-select field) ( setup postdata )
-	*  Using this method, you can use all the normal WP functions as the $post object is temporarily initialized within the loop
-	*  Read more: http://codex.wordpress.org/Template_Tags/get_posts#Reset_after_Postlists_with_offset
-	*/
-
 	$post_objects = get_field('tour_type_blocks');
 
 	if( $post_objects ):
@@ -33,6 +27,7 @@ function display_home_tour_blocks() { ?>
 				<a href="<?php echo get_permalink($post_object->ID); ?>" title="<?php echo get_the_title($post_object->ID); ?>">
 					<h4><?php echo get_the_title($post_object->ID); ?></h4>
 					<?php echo get_the_post_thumbnail( $post_object->ID, 'featured-link' ); ?>
+					<div class="tour-overlay">Category</div>
 				</a>
 			</div>
 	    <?php endforeach;

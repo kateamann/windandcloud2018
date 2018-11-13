@@ -26,6 +26,11 @@
 		}
 
 		.info {
+
+			span.tour-label {
+				display: none;
+			}
+			
 			@media only screen and (max-width: $big-screen) {
 				width: 50%;
 				float: left;

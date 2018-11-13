@@ -22,4 +22,13 @@
 		color: $sidebar-widget--link-color;
 		text-decoration: none;
 	}
+
+	.newsletter.widget {
+		background-color: inherit;
+		padding: 0;
+
+		.subscribe-button-inner {
+			float: right;
+		}
+	}
 }

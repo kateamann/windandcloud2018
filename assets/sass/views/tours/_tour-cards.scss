@@ -37,7 +37,7 @@
     	color: $white;
     }
 
-    .price {
+    .tour-overlay {
     	position: absolute;
 	    display: inline-block;
 	    z-index: 100;
@@ -52,7 +52,7 @@
     }
 
     img,
-    .price {
+    .tour-overlay {
     	border-bottom-left-radius: $border-radius;
     	border-bottom-right-radius: $border-radius;
     }

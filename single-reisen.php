@@ -65,29 +65,35 @@ function display_tour_programme_download() {
 
 function upcoming_tour_dates() {
     if( have_rows('tour_dates') ) {
+        $have_date = false;
+        $today = date('Ymd');
+
         echo '<h4>Termine</h4>';
         while ( have_rows('tour_dates') ) : the_row();
 
-            the_sub_field('tour_start');
-            echo ' - ';
-            the_sub_field('tour_end');
-            echo '<br />';
+            $the_date = get_sub_field( 'tour_start', false );
+            if( $the_date > $today ) {
+                $have_date = true;
+                    ?>
 
+                <span class="tour-start"><?php the_sub_field('tour_start'); ?></span> - 
+                <span class="tour-end"><?php the_sub_field('tour_end'); ?></span>
+                <?php
+                if( get_sub_field('tour_label')) { ?>
+                    <span class="tour-label"> &nbsp; <?php the_sub_field('tour_label'); ?></span>
+                    <?php
+                } ?>
+
+                <br />
+                <?php
+            }
         endwhile;
+
+        if( !$have_date ) { ?>
+            <span class="no-tours">No tours</span>
+            <?php
+        }
     }
-}
-
-
-
-//add_action( 'genesis_after_entry_content', __NAMESPACE__ . '\display_featured_tour_image', 3 );
-function display_featured_tour_image() {
-    if ( ! has_post_thumbnail() ) {
-        return;
-    }
-    // Display featured image above content
-    echo '<div class="singular-featured-image">';
-        genesis_image( array( 'size' => 'featured-image' ) );
-    echo '</div>';
 }
 
  
@@ -327,7 +333,7 @@ function related_tours() {
                         $price = 'ab €' . get_field('price');
                     }
  
-                    $related .= '<div class="small-tour-card"><a href="' . get_permalink() . '" rel="bookmark" title="Permanent Link to' . get_the_title() . '"><h4>' . get_the_title() . '</h4>' . $img . '<div class="price">' . $price . '</div></a></div>';
+                    $related .= '<div class="small-tour-card"><a href="' . get_permalink() . '" rel="bookmark" title="Permanent Link to' . get_the_title() . '"><h4>' . get_the_title() . '</h4>' . $img . '<div class="tour-overlay">' . $price . '</div></a></div>';
                      
                     $postIDs[] = $post->ID;
  
