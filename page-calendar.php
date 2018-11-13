@@ -86,7 +86,13 @@ function group_travel_calendar() {
 			<tr onclick="location.href='<?php the_permalink( $post_id ); ?>'">
 				<td class="date"><?php echo date('d.m.y', strtotime($startdate)) . ' - ' . date('d.m.y', strtotime($enddate)) ?></td>
 				<td class="tour-name"><?php echo $tour_name; ?></td>
-				<td class="tour-tag"><?php echo $tour_tags[0]->name; ?></td>
+				<td class="tour-tag">
+					<?php
+					foreach($tour_tags as $tour_tag) :  
+						echo $tour_tag->name . '&nbsp;'; 
+			      	endforeach; 
+			      	?>
+			    </td>
 				<td class="arrow"><i class="fas fa-caret-right"></i></td>
 			</tr>
 

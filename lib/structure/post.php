@@ -209,7 +209,7 @@ function blog_post_related_tours() {
                         $price = 'ab €' . get_field('price');
                     }
  
-                    $related .= '<div class="small-tour-card"><a href="' . get_permalink() . '" rel="bookmark" title="Permanent Link to' . get_the_title() . '"><h4>' . get_the_title() . '</h4>' . $img . '<div class="price">' . $price . '</div></a></div>';
+                    $related .= '<div class="small-tour-card"><a href="' . get_permalink() . '" rel="bookmark" title="Permanent Link to' . get_the_title() . '"><h4>' . get_the_title() . '</h4>' . $img . '<div class="tour-overlay">' . $price . '</div></a></div>';
                      
                     $postIDs[] = $post->ID;
  
