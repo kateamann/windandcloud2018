@@ -238,6 +238,26 @@
 				color: $black;
 			}
 		}
+
+		.feedback {
+			padding: 20px 0;
+			margin-bottom: 20px;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+
+			h4 span.feedback-date {
+				font-weight: 300;
+			}
+
+			h5 {
+				color: $green;
+			}
+
+		}
+
+
 	}
 
 	.entry-footer {

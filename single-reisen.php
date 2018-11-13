@@ -193,6 +193,44 @@ function display_page_content($path) {
 
 
 
+function display_tour_feedback() {
+    if( have_rows('tour_feedback') ) { ?>
+
+    <?php while( have_rows('tour_feedback') ): the_row(); 
+
+        $customer_name = get_sub_field('customer_name');
+        $feedback_date = get_sub_field('feedback_date');
+        $comment = get_sub_field('customer_comment');
+
+        $rating = get_sub_field('customer_rating');
+        $rating_stars = "";
+
+        // img tags for each whole star
+        for( $i=0; $i<$rating; $i++ ){
+            $rating_stars .= '<i class="fas fa-star"></i>';
+        }
+
+        ?>
+        <div class="feedback">
+
+        <h4><?php echo $customer_name; ?><span class="feedback-date"> am <?php echo $feedback_date; ?></span></h4>
+            <?php if( $rating ) { ?>
+                <h5>
+                    <?php print $rating_stars; ?>
+                </h5>
+                <?php
+            } 
+            echo $comment; ?>
+        </div>
+
+    <?php endwhile; ?>
+
+<?php }
+}
+
+
+
+
 add_action( 'genesis_after_entry_content', __NAMESPACE__ . '\tour_tabs', 6 );
 function tour_tabs() { 
 	?>
@@ -250,9 +288,7 @@ function tour_tabs() {
 			<h3 class="tab_drawer_heading" rel="tab4">Bewertungen</h3>
 			<div id="tab4" class="tab_content">
 			<h2 class="tab-heading">Bewertungen</h2>
-			<?php if( get_field('ratings_tab') ){
-					the_field('ratings_tab');
-				} ?>
+                <?php display_tour_feedback();?>
 			</div>
 			<!-- #tab4 --> 
 
@@ -402,6 +438,5 @@ function related_tours() {
          
     }
 }
-
 
 genesis();
