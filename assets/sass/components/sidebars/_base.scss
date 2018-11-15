@@ -26,9 +26,10 @@
 	.newsletter.widget {
 		background-color: inherit;
 		padding: 0;
+		text-align: center;
 
-		.subscribe-button-inner {
-			float: right;
+		.fa-envelope {
+			margin-right: 10px;
 		}
 	}
 }

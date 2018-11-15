@@ -151,12 +151,7 @@ function related_by_tag() {
 add_action( 'genesis_sidebar', __NAMESPACE__ . '\newsletter_button', 2 );
 function newsletter_button() { ?>
     <section class="newsletter widget">
-        <div class="createsend-button" data-listid="i/27/967/E23/427E004FF3A4670C"></div>
-        <script type="text/javascript">
-            (function () { 
-                var e = document.createElement('script'); e.type = 'text/javascript'; e.async = true; e.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://btn.createsend1.com/js/sb.min.js?v=3'; e.className = 'createsend-script'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(e, s); 
-            })();
-        </script>
+        <a href="" class="button newsletter-signup"><i class="fas fa-envelope"></i>Newsletter abonnieren</a>
     </section>
     <?php
 }

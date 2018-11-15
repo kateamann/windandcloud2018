@@ -41,6 +41,7 @@
 	}
 
 	.menu-item-has-children {
+
 		& > a:after {
 			display: inline-block;
 			font-family: "Font Awesome 5 Free";
@@ -59,11 +60,11 @@
 	.sub-menu {
 		left: -9999px;
 		opacity: 0;
-		// position: absolute;
+		position: absolute;
 		transition:         opacity .4s ease-in-out;
-		width: 100%;
-		// padding: 10px;
-		z-index: 99;
+		width: 260px;
+		padding: 0;
+		z-index: 9999;
 		border-top: 1px solid $white;
 		
 		a {
@@ -72,7 +73,6 @@
 			border-top: 0;
 			@include rem( font-size, $sub-menu--font-size );
 			padding: 20px;
-			position: relative;
 			width: 100%;
 			word-wrap: break-word;
 
