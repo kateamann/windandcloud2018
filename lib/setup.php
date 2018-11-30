@@ -196,4 +196,4 @@ function get_theme_settings_defaults() {
 function yoasttobottom() {
   return 'low';
 }
-add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
+add_filter( 'wpseo_metabox_prio', __NAMESPACE__ . '\yoasttobottom');
