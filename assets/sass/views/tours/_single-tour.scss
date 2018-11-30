@@ -210,6 +210,20 @@
 					display: none;
 				}
 			}
+
+			.tab-section {
+				margin-bottom: 40px;
+			}
+
+			.price {
+				font-weight: 600;
+				padding-bottom: 10px;
+
+				.original {
+					text-decoration: line-through;
+					color: $mid-grey;
+				}
+			}
 		}
 
 		.tab_drawer_heading { display: none; }
