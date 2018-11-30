@@ -28,6 +28,7 @@ function group_travel_calendar() {
 		FROM wac_n06_postmeta as A 
 		JOIN wac_n06_postmeta as B on A.post_id 
 			WHERE A.post_id = B.post_id 
+			AND A.meta_value > CURDATE()
 			AND A.meta_key LIKE 'tour_dates_%_tour_start' AND B.meta_key LIKE 'tour_dates_%_tour_end'
 		    AND SUBSTRING(B.meta_key,12,5) = SUBSTRING(A.meta_key,12,5)
         "

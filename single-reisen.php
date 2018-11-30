@@ -64,35 +64,45 @@ function display_tour_programme_download() {
 }
 
 function upcoming_tour_dates() {
-    if( have_rows('tour_dates') ) {
-        $have_date = false;
-        $today = date('Ymd');
+    if( get_field('tour_dates') ) {
+        if( have_rows('tour_dates') ) {
+            $have_date = false;
+            $today = date('Ymd');
 
-        echo '<h3>Termine</h3>';
-        while ( have_rows('tour_dates') ) : the_row();
+            echo '<h3>Termine</h3>';
+            while ( have_rows('tour_dates') ) : the_row();
 
-            $the_date = get_sub_field( 'tour_start', false );
-            if( $the_date > $today ) {
-                $have_date = true;
-                    ?>
+                $the_date = get_sub_field( 'tour_start', false );
+                if( $the_date > $today ) {
+                    $have_date = true;
+                        ?>
 
-                <span class="tour-start"><?php the_sub_field('tour_start'); ?></span> - 
-                <span class="tour-end"><?php the_sub_field('tour_end'); ?></span>
-                <?php
-                if( get_sub_field('tour_label')) { ?>
-                    <span class="tour-label"> &nbsp; <?php the_sub_field('tour_label'); ?></span>
+                    <span class="tour-start"><?php the_sub_field('tour_start'); ?></span> - 
+                    <span class="tour-end"><?php the_sub_field('tour_end'); ?></span>
                     <?php
-                } ?>
+                    if( get_sub_field('tour_label')) { ?>
+                        <span class="tour-label"> &nbsp; <?php the_sub_field('tour_label'); ?></span>
+                        <?php
+                    } ?>
 
-                <br />
+                    <br />
+                    <?php
+                }
+            endwhile;
+
+            if( !$have_date ) { ?>
+                <span class="no-tours">No tours</span>
                 <?php
             }
-        endwhile;
-
-        if( !$have_date ) { ?>
-            <span class="no-tours">No tours</span>
-            <?php
         }
+    }
+
+    if( get_field('date_information') ) { ?>
+
+        <h3>Termine</h3>
+        <span class="date-info"><?php the_field('date_information'); ?></span>
+
+        <?php
     }
 }
 
@@ -103,36 +113,36 @@ function display_prices() { ?>
     <span class="price">
         <?php 
         if( get_field('discount_price') ) { ?>
-            <span class="discount"><span class="original">€<?php the_field('price'); ?> </span>€<?php the_field('discount_price'); ?></span> pro Person <?php
+            <span class="discount"><span class="original"><?php the_field('price'); ?>€</span> <?php the_field('discount_price'); ?>€ pro Person</span><?php
         } 
         else { ?>
-            €<?php the_field('price');
+            <?php the_field('price'); ?>€ pro Person<?php
         } ?>
     <br /></span>
     <?php
 
     if( get_field('pro_person_b_b') ) { ?>
-       <span class="price-type">€<?php the_field('pro_person_b_b'); ?> pro Person in B&B-Pensionen</span><br />
+       <span class="price-type"><?php the_field('pro_person_b_b'); ?>€ pro Person in B&B-Pensionen</span><br />
         <?php
     }
 
     if( get_field('pro_person_hotels') ) { ?>
-       <span class="price-type">€<?php the_field('pro_person_hotels'); ?> pro Person in Hotels</span><br />
+       <span class="price-type"><?php the_field('pro_person_hotels'); ?>€ pro Person in Hotels</span><br />
         <?php
     }
 
     if( get_field('einzelzimmer_zuschlag') ) { ?>
-       <span class="price-type">€<?php the_field('einzelzimmer_zuschlag'); ?> Einzelzimmer-Zuschlag</span><br />
+       <span class="price-type"><?php the_field('einzelzimmer_zuschlag'); ?>€ Einzelzimmer-Zuschlag</span><br />
         <?php
     }
 
     if( get_field('august_zuschlag') ) { ?>
-       <span class="price-type">€<?php the_field('august_zuschlag'); ?> August-Zuschlag</span><br />
+       <span class="price-type"><?php the_field('august_zuschlag'); ?>€ August-Zuschlag</span><br />
         <?php
     }
 
     if( get_field('zuschlag_fur_einzelreisende') ) { ?>
-       <span class="price-type">€<?php the_field('zuschlag_fur_einzelreisende'); ?> Zuschlag für Einzelreisende</span><br />
+       <span class="price-type"><?php the_field('zuschlag_fur_einzelreisende'); ?>€ Zuschlag für Einzelreisende</span><br />
         <?php
     }
 
@@ -140,7 +150,7 @@ function display_prices() { ?>
         
         while ( have_rows('additional_prices') ) : the_row(); ?>
 
-            <span class="price-type">€<?php the_sub_field( 'amount' ); ?> <?php the_sub_field( 'label' ); ?></span><br />
+            <span class="price-type"><?php the_sub_field( 'amount' ); ?>€ <?php the_sub_field( 'label' ); ?></span><br />
 
             <?php
         endwhile;
