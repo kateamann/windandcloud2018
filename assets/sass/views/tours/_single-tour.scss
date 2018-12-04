@@ -25,6 +25,10 @@
 			margin-left: 0;
 		}
 
+		h4 {
+			margin-top: 20px;
+		}
+
 		.info {
 
 			span.tour-label {
@@ -47,7 +51,6 @@
 			@include rem( font-size, 20px );
 			font-weight: 600;
 			color: $green;
-			margin-bottom: 20px;
 
 			.original {
 				text-decoration: line-through;
@@ -217,7 +220,7 @@
 			}
 
 			table td:first-child {
-				width: 70px;
+				width: 60px;
 			}
 
 			.price {

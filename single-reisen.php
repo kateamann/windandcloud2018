@@ -69,7 +69,6 @@ function upcoming_tour_dates() {
             $have_date = false;
             $today = date('Ymd');
 
-            echo '<h3>Termine</h3>';
             while ( have_rows('tour_dates') ) : the_row();
 
                 $the_date = get_sub_field( 'tour_start', false );
@@ -99,7 +98,6 @@ function upcoming_tour_dates() {
 
     if( get_field('date_information') ) { ?>
 
-        <h3>Termine</h3>
         <span class="date-info"><?php the_field('date_information'); ?></span>
 
         <?php
@@ -109,11 +107,7 @@ function upcoming_tour_dates() {
 
 function display_prices() { ?>
 
-    <h3>Preise</h3>
-
-    <table>
-
-    <?php
+    <table><?php
 
     if( get_field('pro_person_b_b') ) { ?>
        <tr><td class="price-type"><?php the_field('pro_person_b_b'); ?> €</td><td>pro Person in B&B-Pensionen</td></tr>
@@ -162,6 +156,7 @@ function tour_info_box() { ?>
         <div class="info">
             <?php display_booking_button(); ?>
         
+            <h4>Preise</h4>
             <div class="price">
                 <?php 
                 if( get_field('discount_price') ) { ?>
@@ -171,7 +166,16 @@ function tour_info_box() { ?>
                     <?php the_field('price'); ?> €<?php
                 } ?>
             </div>
+            <h4>Termine</h4>
             <?php upcoming_tour_dates(); ?>
+            <h4>Highlights</h4>
+            <ul>
+                <li>Fahrt mit dem berühmten Jacobite Dampfzug</li>
+                <li>Die Metropolen Edinburgh und Glasgow</li>
+                <li>Die „Insel des Nebels“ -  Isle of Skye</li>
+                <li>Einsamkeit der grandiosen Highlands</li>
+                <li>Bahnfahrten entlang berühmter Filmkulissen</li>
+            </ul>
         </div>
 
         <?php display_map(); ?>
@@ -328,7 +332,9 @@ function tour_tabs() {
 			<h3 class="tab_drawer_heading" rel="tab3">Termine & Preise</h3>
 			<div id="tab3" class="tab_content">
 			<h2 class="tab-heading">Termine & Preise</h2>
+                <h3>Termine</h3>
                 <div class="tab-section"><?php upcoming_tour_dates(); ?></div>
+                <h3>Preise</h3>
                 <div class="tab-section"><?php display_prices(); ?></div>
                 <div class="tab-section"><?php display_page_content('buchung'); ?></div>
 			</div>
