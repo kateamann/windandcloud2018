@@ -5,10 +5,10 @@
 			<span class="price">
 					<?php 
 		        if(get_field('discount_price')) { ?>
-		            <span class="original">€<?php the_field('price'); ?></span><span class="discount">ab €<?php the_field('discount_price'); ?></span> <?php
+		            <span class="original"><?php the_field('price'); ?> €</span><span class="discount"><?php the_field('discount_price'); ?> €</span> <?php
 		        } 
 		        else { ?>
-		            ab €<?php the_field('price');
+		            <?php the_field('price'); ?> €<?php
 		        } ?>
 			</span>
 		</a>

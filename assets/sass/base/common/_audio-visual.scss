@@ -26,3 +26,26 @@
 .entry-content .wp-video {
 	margin: 0 0 28px;
 }
+
+.wp-caption,
+.wp-block-image figure {
+	position: relative;
+
+	img {
+		display: block;
+	}
+
+	figcaption {
+		position: absolute;
+		display: inline-block;
+		z-index: 100;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		padding: 5px;
+		color: $white;
+		background-color: rgba(51, 51, 51, 0.6);
+		margin: 0;
+		text-align: center;
+	}
+}

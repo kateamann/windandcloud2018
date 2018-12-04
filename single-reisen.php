@@ -110,39 +110,33 @@ function upcoming_tour_dates() {
 function display_prices() { ?>
 
     <h3>Preise</h3>
-    <span class="price">
-        <?php 
-        if( get_field('discount_price') ) { ?>
-            <span class="discount"><span class="original"><?php the_field('price'); ?>€</span> <?php the_field('discount_price'); ?>€ pro Person</span><?php
-        } 
-        else { ?>
-            <?php the_field('price'); ?>€ pro Person<?php
-        } ?>
-    <br /></span>
+
+    <table>
+
     <?php
 
     if( get_field('pro_person_b_b') ) { ?>
-       <span class="price-type"><?php the_field('pro_person_b_b'); ?>€ pro Person in B&B-Pensionen</span><br />
+       <tr><td class="price-type"><?php the_field('pro_person_b_b'); ?> €</td><td>pro Person in B&B-Pensionen</td></tr>
         <?php
     }
 
     if( get_field('pro_person_hotels') ) { ?>
-       <span class="price-type"><?php the_field('pro_person_hotels'); ?>€ pro Person in Hotels</span><br />
+       <tr><td class="price-type"><?php the_field('pro_person_hotels'); ?> €</td><td>pro Person in Hotels</td></tr>
         <?php
     }
 
     if( get_field('einzelzimmer_zuschlag') ) { ?>
-       <span class="price-type"><?php the_field('einzelzimmer_zuschlag'); ?>€ Einzelzimmer-Zuschlag</span><br />
+       <tr><td class="price-type"><?php the_field('einzelzimmer_zuschlag'); ?> €</td><td>Einzelzimmer-Zuschlag</td></tr>
         <?php
     }
 
     if( get_field('august_zuschlag') ) { ?>
-       <span class="price-type"><?php the_field('august_zuschlag'); ?>€ August-Zuschlag</span><br />
+       <tr><td class="price-type"><?php the_field('august_zuschlag'); ?> €</td><td>August-Zuschlag</td></tr>
         <?php
     }
 
     if( get_field('zuschlag_fur_einzelreisende') ) { ?>
-       <span class="price-type"><?php the_field('zuschlag_fur_einzelreisende'); ?>€ Zuschlag für Einzelreisende</span><br />
+       <tr><td class="price-type"><?php the_field('zuschlag_fur_einzelreisende'); ?> €</td><td>Zuschlag für Einzelreisende</td></tr>
         <?php
     }
 
@@ -150,11 +144,13 @@ function display_prices() { ?>
         
         while ( have_rows('additional_prices') ) : the_row(); ?>
 
-            <span class="price-type"><?php the_sub_field( 'amount' ); ?>€ <?php the_sub_field( 'label' ); ?></span><br />
+            <tr><td class="price-type"><?php the_sub_field( 'amount' ); ?> €</td><td><?php the_sub_field( 'label' ); ?></td></tr>
 
             <?php
         endwhile;
-    }
+    } ?>
+
+    </table> <?php
 }
 
  
@@ -169,10 +165,10 @@ function tour_info_box() { ?>
             <div class="price">
                 <?php 
                 if( get_field('discount_price') ) { ?>
-                    <span class="discount">ab €<?php the_field('discount_price'); ?></span><span class="original">€<?php the_field('price'); ?></span> <?php
+                    <span class="discount"><?php the_field('discount_price'); ?> €</span><span class="original"><?php the_field('price'); ?> €</span> <?php
                 } 
                 else { ?>
-                    ab €<?php the_field('price');
+                    ab €<?php the_field('price'); ?> €<?php
                 } ?>
             </div>
             <?php upcoming_tour_dates(); ?>
@@ -419,7 +415,7 @@ function related_tours() {
                         $price = '<span class="original">€' . get_field('price') . '</span><span class="discount">ab €' . get_field('discount_price') . '</span>';
                     } 
                     else {
-                        $price = 'ab €' . get_field('price');
+                        $price = get_field('price') . ' €';
                     }
  
                     $related .= '<div class="small-tour-card"><a href="' . get_permalink() . '" rel="bookmark" title="Permanent Link to' . get_the_title() . '"><h4>' . get_the_title() . '</h4>' . $img . '<div class="tour-overlay">' . $price . '</div></a></div>';

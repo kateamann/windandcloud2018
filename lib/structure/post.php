@@ -206,7 +206,7 @@ function blog_post_related_tours() {
                         $price = '<span class="original">€' . get_field('price') . '</span><span class="discount">ab €' . get_field('discount_price') . '</span>';
                     } 
                     else {
-                        $price = 'ab €' . get_field('price');
+                        $price = get_field('price') . ' €';
                     }
  
                     $related .= '<div class="small-tour-card"><a href="' . get_permalink() . '" rel="bookmark" title="Permanent Link to' . get_the_title() . '"><h4>' . get_the_title() . '</h4>' . $img . '<div class="tour-overlay">' . $price . '</div></a></div>';
