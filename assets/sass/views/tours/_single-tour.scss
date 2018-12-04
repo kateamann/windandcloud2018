@@ -219,8 +219,18 @@
 				margin-bottom: 40px;
 			}
 
-			table td:first-child {
-				width: 60px;
+			table {
+				line-height: 1.5;
+
+				td {
+					border: none;
+					padding: 0;
+				}
+
+				td:first-child {
+					width: 60px;
+					text-align: right;
+				}
 			}
 
 			.price {
@@ -262,8 +272,7 @@
 		}
 
 		.feedback {
-			padding: 20px 0;
-			margin-bottom: 20px;
+			padding-bottom: 20px;
 
 			&:last-of-type {
 				margin-bottom: 0;

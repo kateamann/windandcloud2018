@@ -4,15 +4,35 @@
 .site-footer {
 	background-color: $site-footer--background-color;
 	@include rem( font-size, $site-footer--font-size );
-	padding: 60px 0;
+	padding: 40px 0;
+
+	.leftfoot,
+	.midfoot,
+	.rightfoot {
+		display: block;
+	}
+
+	.midfoot,
+	.rightfoot {
+		width: 440px;
+	}
 
 	.leftfoot {
-		text-align: right;
-
-		@media only screen and (max-width: $small-screen) {
-			text-align: left;
-		}
+		width: $primary-sidebar--width;
+		float: left;
+		margin-right: 60px;
 	}
+
+	.midfoot {
+		float: left;
+		
+	}
+
+	.rightfoot {
+		float: right;
+	}
+
+
 
 	p {
 		margin-bottom: 0;
@@ -30,14 +50,8 @@
 
 	.textwidget img {
 		max-width: 100px;
-		float: right;
-		margin-left: 20px;
-
-		@media only screen and (max-width: $small-screen) {
-			float: left;
-			margin-left: 0;
-			margin-right: 20px;
-		}
+		float: left;
+		margin-right: 20px;
 	}
 
 	.menu-social-links-container {

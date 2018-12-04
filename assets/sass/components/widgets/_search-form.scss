@@ -31,3 +31,16 @@
 	position: absolute;
 	width: 1px;
 }
+
+.site-footer .search-form {
+	input[type="search"] {
+		width: 65%;
+    	margin-right: 5px;
+    	padding: 10px;
+    	border-radius: $border-radius;
+	}
+
+	input[type="submit"] {
+		margin: 0;
+	}
+}

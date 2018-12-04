@@ -7,11 +7,6 @@
 
 	.menu-item {
 		border-bottom: none;
-		text-align: right;
-
-		@media only screen and (max-width: $small-screen) {
-			text-align: left;
-		}
 	}
 	
 	a {
