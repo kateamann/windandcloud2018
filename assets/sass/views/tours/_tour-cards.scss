@@ -178,43 +178,22 @@
 			width: 50%;
 			padding: 20px;
 
-			@media only screen and (max-width: $bigger-screen) {
-
-				li:nth-child(n+4) {
-					display: none;
-				}
-			}
 
 			@media only screen and (max-width: $big-screen) {
 				width: 100%;
 				float: none;
-
-				li:nth-child(n+4) {
-					display: list-item;
-				}
 			}
 
 			@media only screen and (max-width: $medium-screen) {
 				width: 50%;
 				float: right;
-
-				li:nth-child(n+4) {
-					display: none;
-				}
 			}
 
 			@media only screen and (max-width: $small-screen) {
 				width: 100%;
 				float: none;
-
-				li:nth-child(n+4) {
-					display: list-item;
-				}
 			}
 		}
-
-
-		
 
 		.more-link {
 			text-align: right;

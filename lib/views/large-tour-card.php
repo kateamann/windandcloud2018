@@ -20,15 +20,7 @@
 		</a>
 
 		<div class="tour-info">
-			<?php //the_excerpt(); ?>
-			<span>Highlights</span>
-			<ul>
-				<li>Fahrt mit dem berühmten Jacobite Dampfzug</li>
-				<li>Die Metropolen Edinburgh und Glasgow</li>
-				<li>Die „Insel des Nebels“ -  Isle of Skye</li>
-				<li>Einsamkeit der grandiosen Highlands</li>
-				<li>Bahnfahrten entlang berühmter Filmkulissen</li>
-			</ul>
+			<?php the_excerpt(); ?>
 			<div class="more-link">
 				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="button">Zu den Reisedetails</a>
 			</div>

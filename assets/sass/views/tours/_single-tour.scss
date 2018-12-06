@@ -18,6 +18,7 @@
 		padding: 20px;
 		margin: 0 0 20px 20px;
 		display: inline-block;
+		@include rem( font-size, 15px );
 
 		@media only screen and (max-width: $big-screen) {
 			width: 100%;
@@ -27,6 +28,10 @@
 
 		h4 {
 			margin-top: 20px;
+		}
+
+		ul {
+			margin-left: 20px;
 		}
 
 		.info {
@@ -45,18 +50,6 @@
 				float: none;
 			}
 
-		}
-
-		.price {
-			@include rem( font-size, 20px );
-			font-weight: 600;
-			color: $green;
-
-			.original {
-				text-decoration: line-through;
-				color: $mid-grey;
-				margin-left: 10px;
-			}
 		}
 
 		a.button.book-tour {
@@ -230,6 +223,7 @@
 				td:first-child {
 					width: 60px;
 					text-align: right;
+					padding-right: 5px;
 				}
 			}
 

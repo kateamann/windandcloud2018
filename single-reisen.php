@@ -152,30 +152,30 @@ add_action( 'genesis_before_entry_content', __NAMESPACE__ . '\tour_info_box', 4 
 function tour_info_box() { ?>
 
     <div class="info-box">
+        <?php display_booking_button(); ?>
 
         <div class="info">
-            <?php display_booking_button(); ?>
+            
         
-            <h4>Preise</h4>
-            <div class="price">
-                <?php 
-                if( get_field('discount_price') ) { ?>
-                    <span class="discount"><?php the_field('discount_price'); ?> €</span><span class="original"><?php the_field('price'); ?> €</span> <?php
-                } 
-                else { ?>
-                    <?php the_field('price'); ?> €<?php
-                } ?>
-            </div>
+            <h4 class="price">Preise • <?php the_field('price'); ?> €</h4>
             <h4>Termine</h4>
             <?php upcoming_tour_dates(); ?>
-            <h4>Highlights</h4>
-            <ul>
-                <li>Fahrt mit dem berühmten Jacobite Dampfzug</li>
-                <li>Die Metropolen Edinburgh und Glasgow</li>
-                <li>Die „Insel des Nebels“ -  Isle of Skye</li>
-                <li>Einsamkeit der grandiosen Highlands</li>
-                <li>Bahnfahrten entlang berühmter Filmkulissen</li>
-            </ul>
+            
+            <?php
+            if( have_rows('highlights') ) { ?>
+                <h4>Highlights</h4>
+                <ul>
+
+                <?php
+                
+                while ( have_rows('highlights') ) : the_row(); ?>
+
+                    <li><?php the_sub_field( 'highlight_point' ); ?></li>
+
+                    <?php
+                endwhile; ?>
+                </ul> <?php
+            } ?>
         </div>
 
         <?php display_map(); ?>
