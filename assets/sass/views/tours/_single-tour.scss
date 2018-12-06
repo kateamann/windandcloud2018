@@ -65,13 +65,11 @@
 
 		@media only screen and (max-width: $big-screen) {
 			width: 40%;
-			margin-top: 0;
 			float: right;
 		}
 
 		@media only screen and (max-width: $smaller-screen) {
 			width: 100%;
-			margin-top: 20px;
 			float: none;
 		}
 

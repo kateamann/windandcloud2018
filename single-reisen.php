@@ -156,7 +156,6 @@ function tour_info_box() { ?>
 
         <div class="info">
             
-        
             <h4 class="price">Preise • <?php the_field('price'); ?> €</h4>
             <h4>Termine</h4>
             <?php upcoming_tour_dates(); ?>
