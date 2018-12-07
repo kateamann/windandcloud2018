@@ -3,6 +3,10 @@
 
 .search-form {
 	overflow: hidden;
+
+	input[type="submit"] {
+		font-family: "Font Awesome 5 Free";
+	}
 }
 
 .entry-content .search-form,
@@ -34,7 +38,7 @@
 
 .site-footer .search-form {
 	input[type="search"] {
-		width: 65%;
+		width: 80%;
     	margin-right: 5px;
     	padding: 10px;
     	border-radius: $border-radius;

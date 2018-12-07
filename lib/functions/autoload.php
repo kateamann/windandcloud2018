@@ -37,7 +37,7 @@ function load_nonadmin_files() {
         // 'structure/loops.php',
         'structure/menu.php',
         'structure/post.php',
-        // 'structure/search.php',
+        'structure/search.php',
         'structure/sidebar.php',
     );
     
