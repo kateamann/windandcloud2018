@@ -114,14 +114,21 @@ function archive_listing_layout() {
 		remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
 		add_action( 'genesis_before_entry', 'genesis_do_post_title' );
 		add_action( 'genesis_before_entry_content', 'genesis_do_post_image', 1 );
-		if ( ! is_post_type_archive( 'team-bios' ) ) {
-			add_action( 'genesis_entry_content', 'genesis_post_info', 8 );
-		}
+        add_action( 'genesis_entry_content', 'genesis_post_meta', 8 );
 	}
 }
 
 
 
+
+//* Customize the post meta function
+add_filter( 'genesis_post_meta', __NAMESPACE__ . '\post_meta_filter' );
+function post_meta_filter($post_meta) {
+    if ( !is_page() ) {
+        $post_meta = '[post_tags before="Tagged: "]';
+        return $post_meta;
+    }
+}
 
 //* Modify the Genesis content limit read more link
 add_filter( 'get_the_content_more_link', __NAMESPACE__ . '\change_read_more_link' );
@@ -131,7 +138,6 @@ function change_read_more_link() {
 
 add_action( 'genesis_entry_content', __NAMESPACE__ . '\read_more_button', 12 );
 function read_more_button() {
-    // if this is a singular page, abort.
     if ( is_singular() ) {
         return;
     }
@@ -141,24 +147,15 @@ function read_more_button() {
 
 
 
-
-
-
 add_action( 'genesis_after_entry', __NAMESPACE__ . '\blog_post_related_tours' );
-/**
- * Outputs related posts with thumbnail
- * 
- * @author Nick the Geek
- * @url https://designsbynickthegeek.com/tutorials/related-posts-genesis
- * @global object $post 
- */
+//* Outputs related tours by tag
 function blog_post_related_tours() {
      
     if ( is_singular ( 'post' ) ) {
          
         global $post;
  
-        $count = 0;
+        //$count = 0;
         $postIDs = array( $post->ID );
         $related = '';
         $tags = wp_get_post_tags( $post->ID );
@@ -166,9 +163,7 @@ function blog_post_related_tours() {
         if ( $tags ) {
              
             foreach ( $tags as $tag ) {
-                 
-                $tagID[] = $tag->term_id;
-                 
+                $tagID[] = $tag->term_id;   
             }
              
             $args = array(
@@ -194,87 +189,27 @@ function blog_post_related_tours() {
  
             $tag_query = new \WP_Query( $args );
              
-            if ( $tag_query->have_posts() ) {
+            if ( $tag_query->have_posts() ) { ?>
+
+                <div class="related-posts">
+                    <h3 class="related-title">Related Tours</h3>
+                    <div class="related-list"> <?php
                  
-                while ( $tag_query->have_posts() ) {
-                     
-                    $tag_query->the_post();
- 
-                    $img = genesis_get_image() ? genesis_get_image( array( 'size' => 'featured-link' ) ) : '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/related.png" alt="' . get_the_title() . '" />';
+                    while ( $tag_query->have_posts() ) {
                          
-                    if(get_field('discount_price')) { 
-                        $price = '<span class="original">€' . get_field('price') . '</span><span class="discount">ab €' . get_field('discount_price') . '</span>';
-                    } 
-                    else {
-                        $price = get_field('price') . ' €';
-                    }
- 
-                    $related .= '<div class="small-tour-card"><a href="' . get_permalink() . '" rel="bookmark" title="Permanent Link to' . get_the_title() . '"><h4>' . get_the_title() . '</h4>' . $img . '<div class="tour-overlay">' . $price . '</div></a></div>';
-                     
-                    $postIDs[] = $post->ID;
- 
-                    $count++;
-                }
+                        $tag_query->the_post(); 
+                            
+                            get_template_part('lib/views/small-tour-card-loop');
+                                                         
+                        $postIDs[] = $post->ID;
+     
+                        //$count++;
+                    } ?>
+
+                    </div>
+                </div> <?php
             }
         }
- 
-        // if ( $count <= 2 ) {
-             
-        //     $catIDs = array( );
- 
-        //     foreach ( $cats as $cat ) {
-                 
-        //         if ( 3 == $cat )
-        //             continue;
-        //         $catIDs[] = $cat;
-                 
-        //     }
-             
-        //     $showposts = 3 - $count;
- 
-        //     $args = array(
-        //         'category__in'          => $catIDs,
-        //         'post__not_in'          => $postIDs,
-        //         'showposts'             => $showposts,
-        //         'post_type' 			=> 'reisen',
-        //         'ignore_sticky_posts'   => 1,
-        //         'orderby'               => 'rand',
-        //         'tax_query'             => array(
-        //                             array(
-        //                                 'taxonomy'  => 'post_format',
-        //                                 'field'     => 'slug',
-        //                                 'terms'     => array( 
-        //                                     'post-format-link', 
-        //                                     'post-format-status', 
-        //                                     'post-format-aside', 
-        //                                     'post-format-quote' ),
-        //                                 'operator' => 'NOT IN'
-        //                             )
-        //         )
-        //     );
- 
-        //     $cat_query = new \WP_Query( $args );
-             
-        //     if ( $cat_query->have_posts() ) {
-                 
-        //         while ( $cat_query->have_posts() ) {
-                     
-        //             $cat_query->the_post();
- 
-        //             $img = genesis_get_image() ? genesis_get_image( array( 'size' => 'featured-link' ) ) : '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/related.png" alt="' . get_the_title() . '" />';
- 
-        //             $related .= '<div class="small-tour-card"><a href="' . get_permalink() . '" rel="bookmark" title="Permanent Link to' . get_the_title() . '"><h4>' . get_the_title() . '</h4>' . $img . '</a></div>';
-        //         }
-        //     }
-        // }
- 
-        if ( $related ) {
-             
-            printf( '<div class="related-posts"><h3 class="related-title">Related Tours</h3><div class="related-list">%s</div></div>', $related );
-         
-        }
-         
-        wp_reset_query();
-         
+        wp_reset_query();  
     }
 }
