@@ -109,11 +109,6 @@ function display_prices() { ?>
 
     <table><?php
 
-    if( get_field('price') ) { ?>
-       <tr><td class="price-type"><?php the_field('price'); ?> €</td><td>pro Person</td></tr>
-        <?php
-    }
-
     if( get_field('pro_person_b_b') ) { ?>
        <tr><td class="price-type"><?php the_field('pro_person_b_b'); ?> €</td><td>pro Person in B&B-Pensionen</td></tr>
         <?php
@@ -161,7 +156,7 @@ function tour_info_box() { ?>
 
         <div class="info">
             
-            <h4 class="price">Preise ab <?php the_field('price'); ?> €</h4>
+            <h4 class="price">Preise • <?php the_field('price'); ?> €</h4>
             <h4>Termine</h4>
             <?php upcoming_tour_dates(); ?>
             
