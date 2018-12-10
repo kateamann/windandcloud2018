@@ -49,7 +49,12 @@
 				width: 100%;
 				float: none;
 			}
+		}
 
+		.price .original {
+			text-decoration: line-through;
+			color: $mid-grey;
+			margin-left: 10px;
 		}
 
 		a.button.book-tour {
