@@ -109,8 +109,8 @@ function display_prices() { ?>
 
     <table><?php
 
-    if( get_field('price') ) { ?>
-       <tr><td class="price-type"><?php the_field('price'); ?> €</td><td>pro Person</td></tr>
+    if( get_field('pro_person') ) { ?>
+       <tr><td class="price-type"><?php the_field('pro_person'); ?> €</td><td>pro Person</td></tr>
         <?php
     }
 
@@ -150,6 +150,10 @@ function display_prices() { ?>
     } ?>
 
     </table> <?php
+
+    if( get_field('additional_price_info') ) {
+        the_field('additional_price_info');
+    }
 }
 
  
@@ -161,13 +165,21 @@ function tour_info_box() { ?>
 
         <div class="info">
             
-            <h4 class="price">Preise ab <?php the_field('price'); ?> €</h4>
+            <h4 class="price">Preise ab <?php 
+            if( get_field('discount_price') ) { ?>
+                    <span class="discount"><?php the_field('discount_price'); ?> €</span><span class="original"><?php the_field('price'); ?> €</span> <?php
+                } 
+                else { ?>
+                    <?php the_field('price'); ?> €<?php
+                } ?>
+            </h4>
+
             <h4>Termine</h4>
             <?php upcoming_tour_dates(); ?>
             
             <?php
             if( have_rows('highlights') ) { ?>
-                <h4>Highlights</h4>
+                <h4>Höhepunkte</h4>
                 <ul>
 
                 <?php
@@ -406,7 +418,7 @@ function related_tours() {
         if ( $tag_query->have_posts() ) { ?>
 
             <div class="related-posts">
-                <h3 class="related-title">You might also like</h3>
+                <h3 class="related-title">Das könnte Ihnen auch gefallen</h3>
                 <div class="related-list"> <?php
              
                 while ( $tag_query->have_posts() ) {
