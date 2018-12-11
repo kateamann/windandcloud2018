@@ -21,5 +21,5 @@ function search_button_text( $text ) {
 //* Customize search form input box text
 add_filter( 'genesis_search_text', __NAMESPACE__ . '\search_text' );
 function search_text( $text ) {
-	return esc_attr( 'Search this website...' );
+	return esc_attr( 'Diese Webseite durchsuchen' );
 }

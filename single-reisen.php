@@ -418,7 +418,7 @@ function related_tours() {
         if ( $tag_query->have_posts() ) { ?>
 
             <div class="related-posts">
-                <h3 class="related-title">Das könnte Ihnen auch gefallen</h3>
+                <h3 class="related-title">Das könnte Ihnen auch gefallen:</h3>
                 <div class="related-list"> <?php
              
                 while ( $tag_query->have_posts() ) {
