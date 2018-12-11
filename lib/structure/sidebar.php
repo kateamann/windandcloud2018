@@ -107,7 +107,7 @@ function related_by_tag() {
             if ( $tag_query->have_posts() ) { ?>
                 <section class="widget featured-content featuredpost">
                     <div class="widget-wrap">
-                        <h3 class="widgettitle widget-title">Related Posts</h3><?php
+                        <h3 class="widgettitle widget-title">ähnliche Beiträge</h3><?php
                  
                         while ( $tag_query->have_posts() ) {
                              
@@ -157,7 +157,7 @@ function featured_tour_in_sidebar() {
 
             <section class="widget featured-content featuredpost">
                 <div class="widget-wrap">
-                    <h3 class="widgettitle widget-title">Featured Tour</h3>
+                    <h3 class="widgettitle widget-title">Reiseangebote</h3>
                     <?php get_template_part('lib/views/small-tour-card-loop'); ?>
                 </div>
             </section><?php 

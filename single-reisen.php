@@ -104,6 +104,17 @@ function upcoming_tour_dates() {
     }
 }
 
+function discount_info() {
+
+    if( get_field('discount_info') ) { ?>
+
+        <div class="discount-info"><?php the_field('discount_info'); ?></div>
+
+        <?php
+    }
+
+}
+
 
 function display_prices() { ?>
 
@@ -149,11 +160,13 @@ function display_prices() { ?>
         endwhile;
     } ?>
 
-    </table> <?php
+    </table> 
 
-    if( get_field('additional_price_info') ) {
-        the_field('additional_price_info');
-    }
+    <p class="additional-price-info"><?php
+        if( get_field('additional_price_info') ) {
+            the_field('additional_price_info');
+        } ?>
+    </p> <?php
 }
 
  
@@ -165,9 +178,9 @@ function tour_info_box() { ?>
 
         <div class="info">
             
-            <h4 class="price">Preise ab <?php 
+            <h4 class="price">ab <?php 
             if( get_field('discount_price') ) { ?>
-                    <span class="discount"><?php the_field('discount_price'); ?> €</span><span class="original"><?php the_field('price'); ?> €</span> <?php
+                    <span class="original"><?php the_field('price'); ?> €</span><span class="discount"><?php the_field('discount_price'); ?> €</span> <?php
                 } 
                 else { ?>
                     <?php the_field('price'); ?> €<?php
@@ -348,10 +361,18 @@ function tour_tabs() {
 			<h3 class="tab_drawer_heading" rel="tab3">Termine & Preise</h3>
 			<div id="tab3" class="tab_content">
 			<h2 class="tab-heading">Termine & Preise</h2>
-                <h3>Termine</h3>
-                <div class="tab-section"><?php upcoming_tour_dates(); ?></div>
-                <h3>Preise</h3>
-                <div class="tab-section"><?php display_prices(); ?></div>
+            
+                <?php discount_info(); ?>
+                
+                <div class="tab-section">
+                    <h3>Termine</h3>
+                    <?php upcoming_tour_dates(); ?>
+                </div>
+                
+                <div class="tab-section">
+                    <h3>Preise</h3>
+                    <?php display_prices(); ?>
+                </div>
                 <div class="tab-section"><?php display_page_content('buchung'); ?></div>
 			</div>
 			<!-- #tab3 -->

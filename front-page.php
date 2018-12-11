@@ -73,7 +73,7 @@ function featured_tour_home() {
         ?>
 
         <div class="home-featured-tour">
-        	<h2>Featured Tour</h2>
+        	<h2>Reiseangebote</h2>
         	<?php get_template_part('lib/views/large-tour-card'); ?>
 		</div>
 

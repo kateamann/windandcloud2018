@@ -54,7 +54,7 @@
 		.price .original {
 			text-decoration: line-through;
 			color: $mid-grey;
-			margin-left: 10px;
+			margin-right: 10px;
 		}
 
 		a.button.book-tour {
@@ -215,8 +215,36 @@
 				margin-bottom: 40px;
 			}
 
+			.discount-info {
+				width: 40%;
+				padding:20px;
+				background-color: $white;
+				border: 1px solid $green;
+				border-radius: $border-radius;
+				float: right;
+				@include rem( font-size, 15px );
+
+				p:last-of-type {
+					margin-bottom: 0;
+				}
+
+				@media only screen and (max-width: $small-screen) {
+					width: 100%;
+					float: none;
+					margin-bottom: 20px;
+				}
+
+			}
+
+			p.additional-price-info {
+				font-style: italic;
+				color: $mid-grey;
+			}
+
 			table {
 				line-height: 1.5;
+				margin-bottom: 10px;
+				display: block;
 
 				td {
 					border: none;
