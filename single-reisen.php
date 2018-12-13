@@ -108,7 +108,12 @@ function discount_info() {
 
     if( get_field('discount_info') ) { ?>
 
+    <div class="offer">
+        <div class="offer-stamp">
+            Offer
+        </div>
         <div class="discount-info"><?php the_field('discount_info'); ?></div>
+    </div>
 
         <?php
     }

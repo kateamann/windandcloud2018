@@ -215,24 +215,50 @@
 				margin-bottom: 40px;
 			}
 
-			.discount-info {
-				width: 40%;
-				padding:20px;
-				background-color: $white;
-				border: 1px solid $green;
-				border-radius: $border-radius;
+			.offer {
 				float: right;
+				width: 40%;
+
+				@media only screen and (max-width: $small-screen) {
+					width: 100%;
+					float: none;
+					margin: 20px 10px 20px 0;
+				}
+			}
+
+			.offer-stamp {
+			    display: inline-block;
+			    border-radius: 10px;
+			    border-width: 3px;
+			    border-color: $green;
+			    border-style: dashed;
+			    background-color: $light-grey;
+			    color: $green;
+			    text-transform: uppercase;
+			    margin: 0 auto;
+			    font-size: 20px;
+			    font-style: normal;
+			    font-weight: 600;
+			    letter-spacing: -1px;
+			    padding: 0 8px;
+			    transform: rotate(20deg);
+			    float: right;
+			    z-index: 200;
+			    margin-top: 3px;
+    			margin-right: -10px;
+			}
+
+			.discount-info {
+				padding:20px;
+				border: 3px solid $green;
+				border-radius: $border-radius;
 				@include rem( font-size, 15px );
 
 				p:last-of-type {
 					margin-bottom: 0;
 				}
 
-				@media only screen and (max-width: $small-screen) {
-					width: 100%;
-					float: none;
-					margin-bottom: 20px;
-				}
+				
 
 			}
 
@@ -310,10 +336,7 @@
 			h5 {
 				color: $green;
 			}
-
 		}
-
-
 	}
 
 	.entry-footer {
@@ -345,11 +368,5 @@
 				margin: 0 auto;
 			}
 		}
-
 	}
-
 }
-	
-
-
-	

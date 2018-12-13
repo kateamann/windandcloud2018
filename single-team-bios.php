@@ -19,7 +19,7 @@ function display_team_image() {
 	
 	// Display featured image above content
 	genesis_image( array( 
-		'size' => 'featured-image', 
+		'size' => 'featured-link', 
 		'attr' => array ( 'class' => 'alignright' ), 
 	) );
 }

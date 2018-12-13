@@ -107,7 +107,7 @@ function related_by_tag() {
             if ( $tag_query->have_posts() ) { ?>
                 <section class="widget featured-content featuredpost">
                     <div class="widget-wrap">
-                        <h3 class="widgettitle widget-title">ähnliche Beiträge</h3><?php
+                        <h3 class="widgettitle widget-title">Ähnliche Beiträge</h3><?php
                  
                         while ( $tag_query->have_posts() ) {
                              
