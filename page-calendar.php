@@ -89,9 +89,12 @@ function group_travel_calendar() {
 				<td class="tour-name"><?php echo $tour_name; ?></td>
 				<td class="tour-tag">
 					<?php
-					foreach($tour_tags as $tour_tag) :  
-						echo $tour_tag->name . '&nbsp;'; 
-			      	endforeach; 
+					if($tour_tags) {
+						foreach($tour_tags as $tour_tag) :  
+							echo $tour_tag->name . '&nbsp;'; 
+				      	endforeach;
+					}
+					 
 			      	?>
 			    </td>
 				<td class="arrow"><i class="fas fa-caret-right"></i></td>

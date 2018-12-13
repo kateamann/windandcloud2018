@@ -1,5 +1,9 @@
 .single-reisen {
 
+	h2.trip-subline {
+		@include rem( font-size, 18px );
+	}
+
 	.entry-header {
 		margin-bottom: 20px;
 		display: inline-block;

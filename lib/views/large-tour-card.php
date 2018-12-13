@@ -1,6 +1,6 @@
 <section class="large-tour-card">
 
-	<h3><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+	<h2><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 			<?php the_title(); ?>
 			<span class="price">
 				<?php 
@@ -12,7 +12,7 @@
 		        } ?>
 			</span>
 		</a>
-	</h3>
+	</h2>
 
 	<div class="tour-teaser">
     	<a class="entry-image-link" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
@@ -24,7 +24,7 @@
 			$subline = get_field('subline');
 
 		    if( $subline ) { ?>
-		        <h5 class="trip-subline"><?php echo $subline; ?></h5>
+		        <h3 class="trip-subline"><?php echo $subline; ?></h3>
 		    <?php 
 		    }
 

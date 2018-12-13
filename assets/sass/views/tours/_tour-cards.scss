@@ -111,7 +111,7 @@
 	border-bottom-right-radius: $border-radius;
 
 
-	h3 {
+	h2 {
 		@include rem( font-size, 20px );
 		background-color: $mid-grey;
 		color: $white;
@@ -138,6 +138,10 @@
 				margin-right: 10px;
 			}
 	    }
+	}
+
+	h3.trip-subline {
+		@include rem( font-size, 18px );
 	}
 
 	.tour-teaser {

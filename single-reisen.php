@@ -36,7 +36,7 @@ function display_subline() {
 
     if( $subline ) { ?>
 
-        <h5 class="trip-subline"><?php echo $subline; ?></h5>
+        <h2 class="trip-subline"><?php echo $subline; ?></h2>
 
     <?php 
     }
@@ -370,12 +370,12 @@ function tour_tabs() {
                 <?php discount_info(); ?>
                 
                 <div class="tab-section">
-                    <h3>Termine</h3>
+                    <h4>Termine</h4>
                     <?php upcoming_tour_dates(); ?>
                 </div>
                 
                 <div class="tab-section">
-                    <h3>Preise</h3>
+                    <h4>Preise</h4>
                     <?php display_prices(); ?>
                 </div>
                 <div class="tab-section"><?php display_page_content('buchung'); ?></div>
