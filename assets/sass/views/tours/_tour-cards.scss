@@ -111,7 +111,7 @@
 	border-bottom-right-radius: $border-radius;
 
 
-	h2 {
+	h3 {
 		@include rem( font-size, 20px );
 		background-color: $mid-grey;
 		color: $white;
@@ -140,7 +140,7 @@
 	    }
 	}
 
-	h3.trip-subline {
+	h4.trip-subline {
 		@include rem( font-size, 18px );
 	}
 
