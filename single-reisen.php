@@ -110,7 +110,7 @@ function discount_info() {
 
     <div class="offer">
         <div class="offer-stamp">
-            Offer
+            Angebot
         </div>
         <div class="discount-info"><?php the_field('discount_info'); ?></div>
     </div>

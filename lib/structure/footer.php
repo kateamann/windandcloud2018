@@ -38,21 +38,21 @@ function register_footer_widget_areas() {
 			'id'          => 'footer-left',
 			'name'        => __( 'Footer Left', CHILD_THEME_NAME ),
 			'description' => __( 'This is the footer left area', CHILD_THEME_NAME ),
-			'before_widget' => '<div class="footerleft widget">',
-    		'after_widget' => '</div>',
-		),
-		array(
-			'id'          => 'footer-middle',
-			'name'        => __( 'Footer Middle', CHILD_THEME_NAME ),
-			'description' => __( 'This is the footer middle area', CHILD_THEME_NAME ),
-			'before_widget' => '<div class="footermiddle widget">',
+			'before_widget' => '<div class="widget">',
     		'after_widget' => '</div>',
 		),
 		array(
 			'id'          => 'footer-right',
 			'name'        => __( 'Footer Right', CHILD_THEME_NAME ),
 			'description' => __( 'This is the footer right area', CHILD_THEME_NAME ),
-			'before_widget' => '<div class="footerright widget">',
+			'before_widget' => '<div class="widget">',
+    		'after_widget' => '</div>',
+		),
+		array(
+			'id'          => 'footer-logos',
+			'name'        => __( 'Footer Logos', CHILD_THEME_NAME ),
+			'description' => __( 'This is the footer logo area', CHILD_THEME_NAME ),
+			'before_widget' => '<div class="widget">',
     		'after_widget' => '</div>',
 		),
 	);
@@ -69,10 +69,13 @@ function add_custom_footer() {
     genesis_widget_area ('footer-left',array(
         'before' => '<div class="leftfoot">',
         'after' => '</div>',));
-    genesis_widget_area ('footer-middle',array(
-        'before' => '<div class="midfoot">',
-        'after' => '</div>',));
+    echo '<div class="footer-main">';
+    genesis_do_subnav();
     genesis_widget_area ('footer-right',	array(
         'before' => '<div class="rightfoot">',
         'after' => '</div>',));
+    genesis_widget_area ('footer-logos',	array(
+        'before' => '<div class="logosfoot">',
+        'after' => '</div>',));
+    echo '</div>';
 }

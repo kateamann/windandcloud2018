@@ -65,14 +65,12 @@
 		width: 260px;
 		padding: 0;
 		z-index: 9999;
-		border-top: 1px solid $white;
 		
 		a {
 			background-color: $sub-menu--background-color;
 			color: $white;
 			border-top: 0;
 			@include rem( font-size, $sub-menu--font-size );
-			padding: 20px;
 			width: 100%;
 			word-wrap: break-word;
 

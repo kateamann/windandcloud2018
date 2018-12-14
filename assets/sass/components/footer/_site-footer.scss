@@ -7,15 +7,13 @@
 	padding: 40px 0;
 
 	.leftfoot,
-	.midfoot,
-	.rightfoot {
+	.footer-main,
+	.rightfoot,
+	.logosfoot {
 		display: block;
 	}
 
-	.midfoot,
-	.rightfoot {
-		width: 440px;
-	}
+
 
 	.leftfoot {
 		width: $primary-sidebar--width;
@@ -23,13 +21,64 @@
 		margin-right: 60px;
 	}
 
-	.midfoot {
+	.footer-main {
+		width: 880px;
 		float: left;
-		
+
+		@media only screen and (max-width: $bigger-screen) {
+			width: 740px;
+		}
+
+		@media only screen and (max-width: $big-screen) {
+			width: 560px;
+		}
+
+		@media only screen and (max-width: $medium-screen) {
+			width: 400px;
+		}
+	}
+
+	.nav-secondary {
+		background-color: $secondary-nav--background-color;
+		padding: 16px;
+		width: 49%;
+		float: left;
+
+		.wrap {
+			padding: 0;
+		}
+
+		@media only screen and (max-width: $big-screen) {
+			width: 100%;
+			float: none;
+		}
 	}
 
 	.rightfoot {
+		width: 49%;
 		float: right;
+
+		@media only screen and (max-width: $big-screen) {
+			width: 100%;
+			float: none;
+		}
+	}
+
+	.logosfoot {
+		width: 100%;
+		clear: both;
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		align-items: center;
+
+		.widget {
+			max-width: 20%;
+
+			@media only screen and (max-width: $medium-screen) {
+				max-width: 50%;
+			}
+		}
 	}
 
 

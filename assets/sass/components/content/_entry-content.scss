@@ -25,6 +25,38 @@
 	}
 }
 
+section.content-box {
+	margin: 20px 0;
+	display: block;
+	border-bottom-left-radius: $border-radius;
+	border-bottom-right-radius: $border-radius;
+	
+	h3 {
+		@include rem( font-size, 20px );
+		background-color: $mid-grey;
+		color: $white;
+	    border-top-left-radius: $border-radius;
+	    border-top-right-radius: $border-radius;
+	    margin: 0;
+	    padding: 14px 20px;
+
+    	a {
+    		color: $white;
+    	}
+	}
+
+	.box-content {
+		background-color: $light-grey;
+		padding: 20px;
+		border-bottom-left-radius: $border-radius;
+		border-bottom-right-radius: $border-radius;
+
+		p:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
 .blog,
 .archive,
 .search {

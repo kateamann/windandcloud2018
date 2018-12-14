@@ -145,7 +145,22 @@ function read_more_button() {
     printf( '<a href="%s" class="more-link button">%s</a>', get_permalink(), esc_html__( 'Read more' ) );
 }
 
-
+add_action( 'genesis_entry_content', __NAMESPACE__ . '\add_content_boxes', 12 );
+function add_content_boxes() {
+    if ( is_page() && is_singular() ) {
+        if ( get_field('content_boxes') ) {
+            if ( have_rows('content_boxes') ) {
+                while ( have_rows('content_boxes') ) : the_row(); ?>
+                    <section class="content-box">
+                        <h3><?php the_sub_field('box_heading'); ?></h3>
+                        <div class="box-content"><?php the_sub_field('box_content'); ?></div>
+                    </section>
+                    <?php
+                endwhile;
+            }
+        }
+    }
+}
 
 add_action( 'genesis_after_entry', __NAMESPACE__ . '\blog_post_related_tours' );
 //* Outputs related tours by tag
