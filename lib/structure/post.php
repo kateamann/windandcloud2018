@@ -10,18 +10,7 @@
  * @license   GNU General Public License 2.0+
  *
  */
-namespace WindAndCloud2018;  
-
-/**
- * Unregister post callbacks.
- *
- * @since 1.0.0
- *
- * @return void
- */
-function unregister_post_callbacks() {
-
-}            
+namespace WindAndCloud2018;         
 
 add_filter( 'genesis_author_box_gravatar_size', __NAMESPACE__ . '\setup_author_box_gravatar_size' );
 

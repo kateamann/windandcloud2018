@@ -27,7 +27,6 @@ function setup_child_theme() {
     load_child_theme_textdomain( CHILD_TEXT_DOMAIN, CHILD_THEME_DIR . '/languages' );
 
     unregister_genesis_callbacks();
-    
     add_theme_supports();
     add_new_image_sizes();  
 }

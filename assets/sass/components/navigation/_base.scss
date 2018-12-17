@@ -33,6 +33,8 @@
 
 	a:focus,
 	a:hover,
+	.menu-item:focus > a,
+	.menu-item:hover > a,
 	.current-menu-item > a,
 	.sub-menu .current-menu-item > a:focus,
 	.sub-menu .current-menu-item > a:hover  {

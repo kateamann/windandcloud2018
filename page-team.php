@@ -13,8 +13,6 @@
  */
 namespace WindAndCloud2018;
 
-
-
 add_action( 'genesis_entry_content', __NAMESPACE__ . '\team_links', 15 );
 function team_links() {
 	
@@ -45,12 +43,10 @@ function team_links() {
 			<?php
 			endwhile;
 
-			// Reset Second Loop Post Data
 			wp_reset_postdata(); ?>
 
     	</div>
 	<?php
 }
-
 
 genesis();

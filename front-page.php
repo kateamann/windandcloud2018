@@ -21,7 +21,7 @@ function display_home_tour_blocks() { ?>
 
 	$post_objects = get_field('tour_type_blocks');
 
-	if( $post_objects ):
+	if( $post_objects ) {
 	    foreach( $post_objects as $post_object): 
 	    	$parent = wp_get_post_parent_id($post_object->ID);
 
@@ -30,10 +30,7 @@ function display_home_tour_blocks() { ?>
 	    	}
 	    	if( $parent == 23 ) {
 	    		$category = 'Gruppenreisen';
-	    	}
-
-	    	?>
-
+	    	}?>
 
 	        <div class="small-tour-card">
 				<a href="<?php echo get_permalink($post_object->ID); ?>" title="<?php echo get_the_title($post_object->ID); ?>">
@@ -48,14 +45,12 @@ function display_home_tour_blocks() { ?>
 					} ?>
 					
 				</a>
-			</div>
-	    <?php endforeach;
-	endif;
-	?>
+			</div><?php 
+		endforeach;
+	} ?>
 
 	</div> <?php
 }
-
 
 
 add_action( 'genesis_after_entry_content', __NAMESPACE__ . '\featured_tour_home', 12 );
@@ -80,6 +75,5 @@ function featured_tour_home() {
         <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
     <?php endif;
 }
-
 
 genesis();

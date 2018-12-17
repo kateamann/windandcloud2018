@@ -37,6 +37,7 @@ function display_tour_types() {
 	    ),
 		'orderby'	=> 'menu_order',
 		'order'     => 'ASC',
+		'posts_per_page' => -1,
 	);
 
 	$the_query = new \WP_Query( $args );?>
@@ -58,7 +59,6 @@ function display_tour_types() {
 				<?php
 			endwhile;
 
-			// Reset Second Loop Post Data
 			wp_reset_postdata(); ?>
 
     </div> <?php

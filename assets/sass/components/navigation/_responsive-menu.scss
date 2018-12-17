@@ -65,9 +65,11 @@
 
 	.sub-menu-toggle:focus,
 	.sub-menu-toggle:hover,
+	.menu-item:focus > .sub-menu-toggle,
+	.menu-item:hover > .sub-menu-toggle,
 	.current-menu-item .sub-menu-toggle {
 		background-color: transparent;
-		color: $dark-grey;
+		color: $white;
 	}
 
 	.menu-toggle {

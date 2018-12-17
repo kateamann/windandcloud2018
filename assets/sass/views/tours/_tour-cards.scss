@@ -57,7 +57,7 @@
     	border-bottom-right-radius: $border-radius;
     }
 
-    @media only screen and (max-width: $small-screen) {
+    @media only screen and (max-width: $big-screen) {
         margin-bottom: 40px;
         width: 48.717948717948715%;
 

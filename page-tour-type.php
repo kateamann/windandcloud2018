@@ -13,10 +13,6 @@
  */
 namespace WindAndCloud2018;
 
-
-
-
-
 add_action( 'genesis_entry_content', __NAMESPACE__ . '\display_tours_by_type', 10 );
 function display_tours_by_type() {
 
@@ -39,6 +35,7 @@ function display_tours_by_type() {
 		'tag_id'	=> $tour_tag,
 		'orderby'	=> 'menu_order',
 		'order'     => 'ASC',
+		'posts_per_page' => -1,
 	);
 
 	$the_query = new \WP_Query( $args );?>
@@ -57,6 +54,5 @@ function display_tours_by_type() {
 
     </div> <?php
 }
-
 
 genesis();
