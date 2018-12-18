@@ -32,10 +32,6 @@
 		float: left;
 
 		@media only screen and (max-width: $bigger-screen) {
-			width: 740px;
-		}
-
-		@media only screen and (max-width: $big-screen) {
 			width: 560px;
 		}
 
@@ -59,7 +55,7 @@
 			padding: 0;
 		}
 
-		@media only screen and (max-width: $big-screen) {
+		@media only screen and (max-width: $bigger-screen) {
 			width: 100%;
 			float: none;
 		}
@@ -69,7 +65,7 @@
 		width: 49%;
 		float: right;
 
-		@media only screen and (max-width: $big-screen) {
+		@media only screen and (max-width: $bigger-screen) {
 			width: 100%;
 			float: none;
 		}

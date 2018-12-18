@@ -41,11 +41,15 @@
 		}
 
 		td.date {
-			width: 25%;
+			width: 30%;
 
-			@media only screen and (max-width: $smaller-screen) {
+			@media only screen and (max-width: $small-screen) {
 				width: 35%;
 			}
+		}
+
+		td {
+			word-break: normal;
 		}
 
 		td.tour-name {
@@ -54,7 +58,7 @@
 		td.tour-tag {
 			width: 25%;
 
-			@media only screen and (max-width: $medium-screen) {
+			@media only screen and (max-width: $small-screen) {
 				display: none;
 			}
 		}

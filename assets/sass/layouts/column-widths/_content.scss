@@ -8,10 +8,6 @@
 		width: $content--width__bigger-screen;
 	}
 
-	@media only screen and (max-width: $big-screen) {
-		width: $content--width__big-screen;
-	}
-
 	@media only screen and (max-width: $medium-screen) {
 		width: 100%;
 		margin-top: 20px;
@@ -30,10 +26,6 @@
 
 		@media only screen and (max-width: $bigger-screen) {
 			width: $content-both-sidebars--width__bigger-screen;
-		}
-
-		@media only screen and (max-width: $big-screen) {
-			width: $content-both-sidebars--width__big-screen;
 		}
 
 		@media only screen and (max-width: $medium-screen) {

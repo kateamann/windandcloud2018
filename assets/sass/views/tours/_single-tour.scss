@@ -25,7 +25,7 @@
 		display: inline-block;
 		@include rem( font-size, 15px );
 
-		@media only screen and (max-width: $big-screen) {
+		@media only screen and (max-width: $bigger-screen) {
 			width: 100%;
 			float: none;
 			margin-left: 0;
@@ -46,7 +46,7 @@
 				display: none;
 			}
 			
-			@media only screen and (max-width: $big-screen) {
+			@media only screen and (max-width: $bigger-screen) {
 				width: 50%;
 				float: left;
 			}
@@ -73,7 +73,7 @@
 		width: 100%;
 		margin-top: 20px;
 
-		@media only screen and (max-width: $big-screen) {
+		@media only screen and (max-width: $bigger-screen) {
 			width: 40%;
 			max-width: 225px;
 			float: right;
@@ -96,10 +96,6 @@
 		width: 610px;
 
 		@media only screen and (max-width: $bigger-screen) {
-			width: 470px;
-		}
-
-		@media only screen and (max-width: $big-screen) {
 			width: 100%;
 		}
 	}

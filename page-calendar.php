@@ -51,56 +51,61 @@ function group_travel_calendar() {
 	// Loop through the returned rows
 	foreach( $rows as $row) {
 
-	$startdate = $row->startdate;
-	$enddate = $row->enddate;
-	$post_id = $row->post_id;
-	$tour_name = get_the_title($post_id);
-	$tour_tags = get_the_tags($post_id);
+		if ( get_post_status ( $row->post_id ) == 'publish' ) {
+	    
 
-	$newMonth 	= intval(substr($startdate, 4, 2));
-	$time		= strtotime($startdate);
+			$startdate = $row->startdate;
+			$enddate = $row->enddate;
+			$post_id = $row->post_id;
+			$tour_name = get_the_title($post_id);
+			$tour_tags = get_the_tags($post_id);
 
-	if($month !== $newMonth) {
-		if($month !== -1) {
-			// end section
-			?>
-			</tbody></table></div></section>
-			<?php
-		}
-		
-		// start section
-		?>
-		<section class="content-wrapper calendar">
-	  	  <h3><?php echo strftime("%B %Y", $time); ?></h3>
-	  	  
-	  	  <div class="table-wrapper">
-	  	  	<table>
-	  	  		<thead><tr><td class="date">Datum</td><td class="tour-name">Name der Tour</td><td class="tour-tag">Tour Kategorie</td><td class="arrow"></td></tr></thead>
-	  	  		<tbody>
-		<?php
-	}
+			$newMonth 	= intval(substr($startdate, 4, 2));
+			$time		= strtotime($startdate);
 
-	$month = $newMonth;
-
-	// row
-		?>
-			<tr onclick="location.href='<?php the_permalink( $post_id ); ?>'">
-				<td class="date"><?php echo date('d.m.y', strtotime($startdate)) . ' - ' . date('d.m.y', strtotime($enddate)) ?></td>
-				<td class="tour-name"><?php echo $tour_name; ?></td>
-				<td class="tour-tag">
+			if($month !== $newMonth) {
+				if($month !== -1) {
+					// end section
+					?>
+					</tbody></table></div></section>
 					<?php
-					if($tour_tags) {
-						foreach($tour_tags as $tour_tag) :  
-							echo $tour_tag->name . '&nbsp;'; 
-				      	endforeach;
-					}
-					 
-			      	?>
-			    </td>
-				<td class="arrow"><i class="fas fa-caret-right"></i></td>
-			</tr>
+				}
+				
+				// start section
+				?>
+				<section class="content-wrapper calendar">
+			  	  <h3><?php echo strftime("%B %Y", $time); ?></h3>
+			  	  
+			  	  <div class="table-wrapper">
+			  	  	<table>
+			  	  		<thead><tr><td class="date">Datum</td><td class="tour-name">Name der Tour</td><td class="tour-tag">Tour Kategorie</td><td class="arrow"></td></tr></thead>
+			  	  		<tbody>
+				<?php
+			}
 
-			<?php
+			$month = $newMonth;
+
+			// row
+				?>
+					<tr onclick="location.href='<?php the_permalink( $post_id ); ?>'">
+						<td class="date"><?php echo date('d.m.y', strtotime($startdate)) . ' - ' . date('d.m.y', strtotime($enddate)) ?></td>
+						<td class="tour-name"><?php echo $tour_name; ?></td>
+						<td class="tour-tag">
+							<?php
+							if($tour_tags) {
+								foreach($tour_tags as $tour_tag) :  
+									echo $tour_tag->name . '&nbsp;'; 
+						      	endforeach;
+							}
+							 
+					      	?>
+					    </td>
+						<td class="arrow"><i class="fas fa-caret-right"></i></td>
+					</tr>
+
+					<?php
+				
+		}
 	}
 
 	?>
