@@ -28,7 +28,6 @@ jQuery(document).ready(function($){
     });
 	/* if in drawer mode */
 	$(".tab_drawer_heading").click(function() {
-    $('html,body').animate({scrollTop: $(this).offset().top}, 200);
       
       $(".tab_content").hide();
       var d_activeTab = $(this).attr("rel"); 
@@ -36,6 +35,7 @@ jQuery(document).ready(function($){
 	  
 	  $(".tab_drawer_heading").removeClass("d_active");
       $(this).addClass("d_active");
+      $('html,body').animate({scrollTop: $(this).offset().top}, 200);
 	  
 	  $("ul.tour-tabs li").removeClass("active");
 	  $("ul.tour-tabs li[rel^='"+d_activeTab+"']").addClass("active");

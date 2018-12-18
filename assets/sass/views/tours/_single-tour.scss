@@ -197,7 +197,7 @@
 			border-bottom-right-radius: $border-radius;
 			overflow: auto;
 
-			@media only screen and (max-width: $medium-screen) {
+			@media only screen and (max-width: $small-screen) {
 				margin-top: 20px;
 			}
 		}
@@ -209,7 +209,7 @@
 			h2.tab-heading {
 				margin-bottom: 30px;
 
-				@media only screen and (max-width: $medium-screen) {
+				@media only screen and (max-width: $small-screen) {
 					display: none;
 				}
 			}
@@ -301,7 +301,7 @@
 
 		.tab_drawer_heading { display: none; }
 
-		@media only screen and (max-width: $medium-screen) {
+		@media only screen and (max-width: $small-screen) {
 			.tour-tabs {
 				display: none;
 			}
