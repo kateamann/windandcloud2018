@@ -1,7 +1,7 @@
 <section class="large-tour-card">
 
 	<h3><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-			<?php the_title(); ?>
+			<span class="tour-title"><?php the_title(); ?></span>
 			<span class="price">
 				<?php 
 		        if(get_field('discount_price')) { ?>

@@ -2,6 +2,7 @@
 
 	h2.trip-subline {
 		@include rem( font-size, 18px );
+		margin-bottom: 0;
 	}
 
 	.entry-header {
@@ -36,6 +37,7 @@
 
 		ul {
 			margin-left: 20px;
+			margin-bottom: 0;
 		}
 
 		.info {
@@ -62,7 +64,6 @@
 		}
 
 		a.button.book-tour {
-			margin-bottom: 20px;
 		    width: 100%;
 		    text-align: center;
 		}
@@ -74,11 +75,13 @@
 
 		@media only screen and (max-width: $big-screen) {
 			width: 40%;
+			max-width: 225px;
 			float: right;
 		}
 
 		@media only screen and (max-width: $smaller-screen) {
 			width: 100%;
+			max-width: 225px;
 			float: none;
 		}
 

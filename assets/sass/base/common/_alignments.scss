@@ -46,3 +46,14 @@ a.alignright,
 img.alignright {
 	margin: 0 0 24px 24px;
 }
+
+.single-team-bios img.alignright {
+	max-width: 50%;
+
+	@media only screen and (max-width: $smaller-screen) {
+		width: 100%;
+		max-width: 100%;
+		float: none;
+		margin-left: 0;
+	}
+}

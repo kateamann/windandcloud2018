@@ -26,6 +26,10 @@
 	@media only screen and (max-width: $small-screen) {
 		padding: 5% 5% 0;
 	}
+
+	@media only screen and (max-width: $smaller-screen) {
+		padding: 5% 0 0;
+	}
 }
 
 @media only screen and (max-width: $small-screen) {

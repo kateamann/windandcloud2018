@@ -14,7 +14,7 @@ namespace WindAndCloud2018;
 
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 
-add_action( 'genesis_before_entry_content', __NAMESPACE__ . '\display_team_image', 1 );
+add_action( 'genesis_entry_content', __NAMESPACE__ . '\display_team_image', 1 );
 function display_team_image() {
 	
 	// Display featured image above content

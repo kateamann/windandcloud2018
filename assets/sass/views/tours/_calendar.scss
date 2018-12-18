@@ -7,6 +7,10 @@
 		border-bottom-left-radius: $border-radius;
 	    border-bottom-right-radius: $border-radius;
 	    margin-bottom: 40px;
+
+	    @media only screen and (max-width: $smaller-screen) {
+			padding: 0 5px 5px 5px;
+		}
 	}
 
 	h3 {
@@ -38,6 +42,10 @@
 
 		td.date {
 			width: 25%;
+
+			@media only screen and (max-width: $smaller-screen) {
+				width: 35%;
+			}
 		}
 
 		td.tour-name {

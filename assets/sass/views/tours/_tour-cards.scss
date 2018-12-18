@@ -58,7 +58,6 @@
     }
 
     @media only screen and (max-width: $big-screen) {
-        margin-bottom: 40px;
         width: 48.717948717948715%;
 
         &:nth-of-type(3n+1) {
@@ -120,17 +119,20 @@
 	    margin: 0;
 	    padding: 14px 20px;
 
+	    @media only screen and (max-width: $small-screen) {
+			@include rem( font-size, 18px );
+		}
+
     	a {
     		color: $white;
+    		display: flex;
+    		justify-content: space-between;
     	}
 
 	    .price {
-	    	float: right;
-
-	    	@media only screen and (max-width: $small-screen) {
-	    		float: none;
-	    		margin-left: 10px;
-	    	}
+	    	text-align: right;
+	    	min-width: 35%;
+	    	margin-left: 10px;
 
 	    	.original {
 				text-decoration: line-through;
@@ -141,7 +143,8 @@
 	}
 
 	h4.trip-subline {
-		@include rem( font-size, 18px );
+		@include rem( font-size, 16px );
+		margin-bottom: 5px;
 	}
 
 	.tour-teaser {
@@ -165,16 +168,6 @@
 				width: 100%;
 				float: none;
 			}
-
-			@media only screen and (max-width: $medium-screen) {
-				width: 50%;
-				float: left;
-			}
-
-			@media only screen and (max-width: $small-screen) {
-				width: 100%;
-				float: none;
-			}
 		}
 
 		.tour-info {
@@ -182,18 +175,12 @@
 			width: 50%;
 			padding: 20px;
 
+			p:last-of-type {
+				margin-bottom: 10px;
+			}
+
 
 			@media only screen and (max-width: $big-screen) {
-				width: 100%;
-				float: none;
-			}
-
-			@media only screen and (max-width: $medium-screen) {
-				width: 50%;
-				float: right;
-			}
-
-			@media only screen and (max-width: $small-screen) {
 				width: 100%;
 				float: none;
 			}

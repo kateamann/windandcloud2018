@@ -114,7 +114,7 @@ function archive_listing_layout() {
 add_filter( 'genesis_post_meta', __NAMESPACE__ . '\post_meta_filter' );
 function post_meta_filter($post_meta) {
     if ( !is_page() ) {
-        $post_meta = '[post_tags before="Tagged: "]';
+        $post_meta = '[post_categories before="Kategorien: "]';
         return $post_meta;
     }
 }

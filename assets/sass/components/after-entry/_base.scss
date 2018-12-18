@@ -19,4 +19,9 @@
     h3.related-title {
     	margin-bottom: 30px;
     }
+
+    @media only screen and (max-width: $small-screen) {
+		padding: 20px;
+		margin-bottom: 5%;
+	}
 }
