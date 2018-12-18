@@ -23,3 +23,9 @@ add_filter( 'genesis_search_text', __NAMESPACE__ . '\search_text' );
 function search_text( $text ) {
 	return esc_attr( 'Diese Webseite durchsuchen' );
 }
+
+add_filter( 'genesis_search_title_text', __NAMESPACE__ . '\search_title_text' );
+
+function search_title_text() {
+    return esc_attr( 'Suchergebnisse für:' );
+}
