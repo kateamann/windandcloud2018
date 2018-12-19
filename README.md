@@ -1,8 +1,10 @@
-=== Wind and Cloud Travel 2018 ===
+## Wind and Cloud Travel 2018
 
-Author: Kate Amann
-Tested up to: WordPress 5.0.1
-Version: 1.3 
+**Author:** Kate Amann
+
+**Tested up to:** WordPress 5.0.1
+
+**Version:** 1.3 
 
 This is a custom Genesis child theme for Wind and Cloud travel.
 
