@@ -139,6 +139,17 @@
 				color: $light-grey;
 				margin-right: 10px;
 			}
+
+			@media only screen and (max-width: $small-screen) {
+				.original {
+					margin-right: 0;
+				}
+
+				.discount {
+					display: table;
+					float: right;
+				}
+			}
 	    }
 	}
 

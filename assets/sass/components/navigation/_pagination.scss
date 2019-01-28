@@ -19,6 +19,11 @@
 	li {
 		display: inline;
 
+		&.active a {
+			background-color: $pagination__hoverBackgroundColor;
+			color: $pagination--hover-color;
+		}
+
 		@media only screen and (max-width: $small-screen) {
 			a {
 				margin-bottom: 4px;

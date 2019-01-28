@@ -134,6 +134,18 @@ function read_more_button() {
     printf( '<a href="%s" class="more-link button">%s</a>', get_permalink(), esc_html__( 'Read more' ) );
 }
 
+//* Customize the next page link
+add_filter ( 'genesis_next_link_text' , __NAMESPACE__ . '\custom_next_page_link' );
+function custom_next_page_link ( $text ) {
+    return 'nächste Seite &#x000BB;';
+}
+
+//* Customize the previous page link
+add_filter ( 'genesis_prev_link_text' , __NAMESPACE__ . '\custom_previous_page_link' );
+function custom_previous_page_link ( $text ) {
+    return '&#x000AB; vorherige Seite';
+}
+
 add_action( 'genesis_entry_content', __NAMESPACE__ . '\add_content_boxes', 12 );
 function add_content_boxes() {
     if ( is_page() && is_singular() ) {
@@ -196,7 +208,7 @@ function blog_post_related_tours() {
             if ( $tag_query->have_posts() ) { ?>
 
                 <div class="related-posts">
-                    <h3 class="related-title">Related Tours</h3>
+                    <h3 class="related-title">Das könnte Sie auch interessieren:</h3>
                     <div class="related-list"> <?php
                  
                     while ( $tag_query->have_posts() ) {
