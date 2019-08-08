@@ -18,19 +18,19 @@ h1 {
 }
 
 h2 {
-	@include rem( font-size, 26px );
+	@include rem( font-size, 24px );
 }
 
 h3 {
-	@include rem( font-size, 22px );
-}
-
-h4 {
 	@include rem( font-size, 20px );
 }
 
-h5 {
+h4 {
 	@include rem( font-size, 18px );
+}
+
+h5 {
+	@include rem( font-size, 16px );
 }
 
 h6 {

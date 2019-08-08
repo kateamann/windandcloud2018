@@ -14,7 +14,18 @@ namespace WindAndCloud2018;
 
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 
-add_action( 'genesis_entry_content', __NAMESPACE__ . '\display_team_image', 1 );
+add_action( 'genesis_entry_header', __NAMESPACE__ . '\display_team_category', 12 );
+function display_team_category() {
+	$team_cat = get_field('team_category');
+	$job_title = get_field('job_title');
+	?>
+
+	<h2><i class="fas <?php echo $team_cat['value']; ?>"></i>&nbsp;<?php echo $team_cat['label']; ?><?php if($job_title) { ?>&nbsp;-&nbsp;<span><?php echo $job_title; ?></span><?php } ?></h2>
+
+	<?php
+}
+
+add_action( 'genesis_before_entry_content', __NAMESPACE__ . '\display_team_image', 1 );
 function display_team_image() {
 	
 	// Display featured image above content

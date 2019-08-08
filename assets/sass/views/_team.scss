@@ -3,7 +3,14 @@
 	margin-bottom: 10px;
 }
 
-.single-team-bios .entry-footer {
-	margin-top: 20px;
-	font-weight: 600;
+.single-team-bios  {
+	.entry-header {
+		margin-bottom: 40px;
+		display: inline-block;
+	}
+
+	.entry-footer {
+		margin-top: 20px;
+		font-weight: 600;
+	}
 }
