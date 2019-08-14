@@ -17,15 +17,10 @@ remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 add_action( 'genesis_entry_header', __NAMESPACE__ . '\display_team_category', 12 );
 function display_team_category() {
 	$team_cat = get_field('team_category');
-	if ($team_cat['value'] === 'buro') {
-		$team_icon = 'fa-pencil-ruler';
-	} else {
-		$team_icon = 'fa-compass';
-	}
 	$job_title = get_field('job_title');
 	?>
 
-	<h2><i class="fas <?php echo $team_icon; ?>"></i>&nbsp;<?php echo $team_cat['label']; ?><?php if($job_title) { ?>&nbsp;-&nbsp;<span><?php echo $job_title; ?></span><?php } ?></h2>
+	<h2><?php echo $team_cat['label']; ?><?php if($job_title) { ?>&nbsp;-&nbsp;<span><?php echo $job_title; ?></span><?php } ?></h2>
 
 	<?php
 }

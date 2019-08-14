@@ -34,21 +34,12 @@ function office_team_links() {
 		    <?php 
 
 		    while ( $the_query->have_posts() ) : $the_query->the_post(); 
-
-		    	$team_cat = get_field('team_category');
-
-		    	if ($team_cat['value'] === 'buro') {
-		    		$team_icon = 'fa-pencil-ruler';
-		    	} else {
-		    		$team_icon = 'fa-compass';
-		    	}
-
 		    	?>
 		    
                     <div class="small-tour-card">
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                         <h4>
-                        	<?php if( $team_cat ) { ?><i class="fas <?php echo $team_icon; ?>"></i>&nbsp;<?php } ?><?php the_title(); ?>
+                        	<?php the_title(); ?>
                         </h4> 
                              <?php the_post_thumbnail( 'featured-link' );?>
                         </a>
@@ -84,21 +75,12 @@ function guide_team_links() {
 		    <?php 
 
 		    while ( $the_query->have_posts() ) : $the_query->the_post(); 
-
-		    	$team_cat = get_field('team_category');
-
-		    	if ($team_cat['value'] === 'buro') {
-		    		$team_icon = 'fa-pencil-ruler';
-		    	} else {
-		    		$team_icon = 'fa-compass';
-		    	}
-
 		    	?>
 		    
                     <div class="small-tour-card">
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                         <h4>
-                        	<?php if( $team_cat ) { ?><i class="fas <?php echo $team_icon; ?>"></i>&nbsp;<?php } ?><?php the_title(); ?>
+                        	<?php the_title(); ?>
                         </h4> 
                              <?php the_post_thumbnail( 'featured-link' );?>
                         </a>

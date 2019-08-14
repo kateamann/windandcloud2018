@@ -19,7 +19,7 @@ function featured_contact_image() {
 	
 	// Display featured image above content
 	genesis_image( array( 
-		'size' => 'featured-image', 
+		'size' => 'full', 
 		'attr' => array ( 'class' => 'featured' ), 
 	) );
 }
@@ -54,7 +54,7 @@ function contact_office_team() {
                     <div class="small-tour-card">
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                         <h4>
-                        	<i class="fas fa-pencil-ruler"></i>&nbsp;<?php the_title(); ?>
+                        	<?php the_title(); ?>
                         </h4> 
                             <?php the_post_thumbnail( 'featured-link' );?>
                             <?php if( $job_title ) {
