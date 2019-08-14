@@ -27,6 +27,9 @@ function setup_author_box_gravatar_size( $size ) {
 	return 90;
 }
 
+//* Remove the edit link
+add_filter ( 'genesis_edit_post_link' , '__return_false' );
+
 //* Customize the entry meta in the entry header
 add_filter( 'genesis_post_info', __NAMESPACE__ . '\post_info_filter' );
 function post_info_filter($post_info) {
@@ -146,6 +149,7 @@ function custom_previous_page_link ( $text ) {
     return '&#x000AB; vorherige Seite';
 }
 
+//* Content boxes on pages
 add_action( 'genesis_entry_content', __NAMESPACE__ . '\add_content_boxes', 12 );
 function add_content_boxes() {
     if ( is_page() && is_singular() ) {

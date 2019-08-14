@@ -30,11 +30,18 @@ function display_home_tour_blocks() { ?>
 	    	}
 	    	if( $parent == 23 ) {
 	    		$category = 'Gruppenreisen';
-	    	}?>
+	    	}
+
+	    	$tour_tag = get_field('tour_tag', $post_object->ID);
+			$tour_term = get_term( $tour_tag );
+
+
+
+	    	?>
 
 	        <div class="small-tour-card">
 				<a href="<?php echo get_permalink($post_object->ID); ?>" title="<?php echo get_the_title($post_object->ID); ?>">
-					<h4><?php echo get_the_title($post_object->ID); ?></h4>
+					<h4><?php echo $tour_term->name; ?></h4>
 					<?php echo get_the_post_thumbnail( $post_object->ID, 'featured-link' ); ?>
 					<?php if( $category ) {
 						?>

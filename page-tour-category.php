@@ -46,12 +46,14 @@ function display_tour_types() {
 
 		    <?php 
 
-		    while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+		    while ( $the_query->have_posts() ) : $the_query->the_post(); 
+				$tour_tag = get_field('tour_tag');
+				$tour_term = get_term( $tour_tag );
+				?>
 		    
-
 				<div class="small-tour-card">
 					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-						<h4><?php the_title(); ?></h4>
+						<h4><?php echo $tour_term->name; ?></h4>
 						<?php the_post_thumbnail( 'featured-link' );?>
 					</a>
 				</div>
