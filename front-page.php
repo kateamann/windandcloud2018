@@ -24,33 +24,14 @@ function display_home_tour_blocks() { ?>
 	if( $post_objects ) {
 	    foreach( $post_objects as $post_object): 
 	    	$parent = wp_get_post_parent_id($post_object->ID);
-
-	    	if( $parent == 342 ) {
-	    		$category = 'Individualreisen';
-	    	}
-	    	if( $parent == 23 ) {
-	    		$category = 'Gruppenreisen';
-	    	}
-
 	    	$tour_tag = get_field('tour_tag', $post_object->ID);
 			$tour_term = get_term( $tour_tag );
-
-
-
 	    	?>
 
 	        <div class="small-tour-card">
 				<a href="<?php echo get_permalink($post_object->ID); ?>" title="<?php echo get_the_title($post_object->ID); ?>">
 					<h4><?php echo $tour_term->name; ?></h4>
 					<?php echo get_the_post_thumbnail( $post_object->ID, 'featured-link' ); ?>
-					<?php if( $category ) {
-						?>
-						<div class="tour-overlay">
-							<?php echo $category; ?>		
-						</div>
-						<?php
-					} ?>
-					
 				</a>
 			</div><?php 
 		endforeach;
